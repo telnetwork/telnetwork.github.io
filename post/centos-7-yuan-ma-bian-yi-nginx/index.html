@@ -1,13 +1,26 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CentOS 7 源码编译 Nginx | Gridea</title>
-<link rel="shortcut icon" href="https://telnetwork.github.io/favicon.ico?v=1584795364330">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+    <meta charset="utf-8" >
+
+<title>CentOS 7 源码编译 Nginx | 天天记</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://telnetwork.github.io/favicon.ico?v=1584795696051">
 <link rel="stylesheet" href="https://telnetwork.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="CentOS 7 源码编译 Nginx | Gridea - Atom Feed" href="https://telnetwork.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 
@@ -19,82 +32,81 @@ yum -y install epel-release
 yum update
 yum -y install lua-devel patch libtool libtool-ltdl libtool-ltd..." />
     <meta name="keywords" content="" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://telnetwork.github.io">
-  <img class="avatar" src="https://telnetwork.github.io/images/avatar.png?v=1584795364330" alt="">
-  </a>
-  <h1 class="site-title">
-    Gridea
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://telnetwork.github.io">
+        <img src="https://telnetwork.github.io/images/avatar.png?v=1584795696051" class="site-logo">
+        <h1 class="site-title">天天记</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
       
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    </div>
   </div>
-  <div class="social-container">
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://telnetwork.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              CentOS 7 源码编译 Nginx
-            </h2>
-            <div class="post-info">
-              <span>
-                2020-03-21
-              </span>
-              <span>
-                8 min read
-              </span>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">CentOS 7 源码编译 Nginx</h2>
+            <div class="post-date">2020-03-21</div>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h3 id="安装依赖软件">安装依赖软件</h3>
+            <div class="post-content" v-pre>
+              <h3 id="安装依赖软件">安装依赖软件</h3>
 <blockquote>
 <p>CentOS 7</p>
 </blockquote>
@@ -312,140 +324,74 @@ systemctl status nginx
 <p><s>--modules-path=/usr/local/ngx_modules/dynamic</s></p>
 <h2 id="篇幅堆的有点多模块配置还没有加上有时间在分割出来">篇幅堆的有点多，模块配置还没有加上，有时间在分割出来</h2>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E8%BD%AF%E4%BB%B6">安装依赖软件</a></li>
-<li><a href="#pcre">PCRE</a></li>
-<li><a href="#openssl">openssl</a></li>
-<li><a href="#%E5%88%9B%E5%BB%BA-nginx-%E8%BF%90%E8%A1%8C%E7%94%A8%E6%88%B7">创建 Nginx 运行用户</a></li>
-<li><a href="#%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BD-nginx-%E6%BA%90%E7%A0%81%E5%8C%85">官网下载 Nginx 源码包</a></li>
-<li><a href="#%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97-1-headers">扩展模块 1---- headers</a></li>
-<li><a href="#%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97-2-echo">扩展模块 2 ---- echo</a></li>
-<li><a href="#%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97-3-brotli">扩展模块 3 ---- brotli</a></li>
-<li><a href="#%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97-4-cloudflare-zlib">扩展模块 4 ---- cloudflare-zlib</a></li>
-<li><a href="#%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97-5-sticky">扩展模块 5 ---- sticky</a></li>
-<li><a href="#%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97-6-luajit">扩展模块 6 ---- luajit</a></li>
-<li><a href="#%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97-7-lua-cjson">扩展模块 7 ---- lua-cjson</a></li>
-<li><a href="#%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97-8-ngx_devel_kit">扩展模块 8 ---- ngx_devel_kit</a></li>
-<li><a href="#%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97-9-lua-nginx">扩展模块 9 ---- lua-nginx</a>
-<ul>
-<li><a href="#%E4%B8%BA%E4%BA%86%E6%96%B9%E4%BE%BF%E4%BB%A5%E5%90%8E%E9%87%8D%E6%96%B0%E7%BC%96%E8%AF%91nginx%E5%B0%86lua%E5%8F%98%E9%87%8F%E5%86%99%E5%85%A5etcprofile-%E4%B8%AD">为了方便以后重新编译Nginx,将lua变量写入/etc/profile 中</a></li>
-</ul>
-</li>
-<li><a href="#%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97-10-tcmallocubuntu-%E7%B3%BB%E7%BB%9F%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E5%BF%BD%E7%95%A5%E8%AF%A5%E6%AD%A5%E9%AA%A4%E4%BB%A5%E4%B8%8Aapt%E4%B8%AD%E5%B7%B2%E5%AE%89%E8%A3%85">扩展模块 10  ---- TCMalloc；Ubuntu 系统可以直接忽略该步骤，以上apt中已安装</a>
-<ul>
-<li><a href="#%E7%BC%96%E8%AF%91-nginx">编译 Nginx</a></li>
-<li><a href="#%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95">创建目录</a></li>
-<li><a href="#%E5%88%9B%E5%BB%BA-systemd-%E6%9C%8D%E5%8A%A1%E6%96%87%E4%BB%B6">创建 systemd 服务文件</a></li>
-<li><a href="#%E7%AE%A1%E7%90%86">管理</a></li>
-<li><a href="#%E6%8C%87%E5%AE%9A%E5%8A%A8%E6%80%81%E6%A8%A1%E5%9D%97%E8%B7%AF%E5%BE%84">指定动态模块路径</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E7%AF%87%E5%B9%85%E5%A0%86%E7%9A%84%E6%9C%89%E7%82%B9%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%85%8D%E7%BD%AE%E8%BF%98%E6%B2%A1%E6%9C%89%E5%8A%A0%E4%B8%8A%E6%9C%89%E6%97%B6%E9%97%B4%E5%9C%A8%E5%88%86%E5%89%B2%E5%87%BA%E6%9D%A5">篇幅堆的有点多，模块配置还没有加上，有时间在分割出来</a></li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
-          </article>
-        </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://telnetwork.github.io/post/hello-gridea/">
+                  <h3 class="post-title">
+                    Hello Gridea
+                  </h3>
+                </a>
+              </div>
+            
 
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://telnetwork.github.io/post/hello-gridea/">
-              <h3 class="post-title">
-                Hello Gridea
-              </h3>
-            </a>
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
           </div>
-        
 
-        
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: 'c7c548b467b891c563fc',
-    clientSecret: 'c8f49de3e406c2201c006b74e732eeabd08512b7',
-    repo: 'https://telnetwork.github.io',
-    owner: 'Telnetwork',
-    admin: ['Telnetwork'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://telnetwork.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+        </div>
       </div>
     </div>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script>
-      hljs.initHighlightingOnLoad()
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+      var gitalk = new Gitalk({
+        clientID: 'c7c548b467b891c563fc',
+        clientSecret: 'c8f49de3e406c2201c006b74e732eeabd08512b7',
+        repo: 'https://telnetwork.github.io',
+        owner: 'Telnetwork',
+        admin: ['Telnetwork'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
-
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
-
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
+      gitalk.render('gitalk-container')
 
     </script>
+  
+
+  
+
+
+
+
   </body>
 </html>
