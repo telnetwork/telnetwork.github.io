@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ubuntu 编译 PHP 7.2.28 | 天天记</title>
+<title>FPM 打包 | 天天记</title>
 <meta name="description" content="温故而知新" />
 <link rel="shortcut icon" href="https://telnetwork.github.io/favicon.ico">
 <link rel="stylesheet" href="https://telnetwork.github.io/styles/main.css">
@@ -15,9 +15,8 @@
 <script src="https://telnetwork.github.io/media/js/jquery.magnific-popup.min.js"></script>
 <script src="https://telnetwork.github.io/media/js/functions.js"></script>
     <meta name="referrer" content="never">
-    <meta name="description" content="安装依赖软件
-apt-get install libxml2-dev libjpeg-dev libpng-dev libfreetype6-dev libzip-dev libc-client2007e-dev libglib2.0-de..." />
-    <meta name="keywords" content="" />
+    <meta name="description" content="yum -y install lua-devel patch libgeoip libgeoip-dev libtool libtool-ltdl libtool-ltdl-devel libxslt-devel libxslt libxm..." />
+    <meta name="keywords" content="Tools" />
     <script src="https://telnetwork.github.io/media/js/waterfall.min.js"></script>
     <script src="https://telnetwork.github.io/media/js/prism.min.js"></script>
   </head>
@@ -81,19 +80,21 @@ apt-get install libxml2-dev libjpeg-dev libpng-dev libfreetype6-dev libzip-dev l
         <div class="center content">
           <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
             <div class="meta top"> 
-              <time class="meta-info" style="float:left;" datetime="2020-03-21"><i class="fa fa-calendar"></i><span class="lately">20 小时前</span></time>
+              <time class="meta-info" style="float:left;" datetime="2020-03-22"><i class="fa fa-calendar"></i><span class="lately">7 分钟前</span></time>
               
-              <a href="https://telnetwork.github.io/FImup81pN/#comments" class="comments meta-info" title="">
-                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/FImup81pN/"> </span>
+              <a href="https://telnetwork.github.io/6HMup-t9x/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/6HMup-t9x/"> </span>
               </a>
-              <span id="/FImup81pN/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              <span id="/6HMup-t9x/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
               
             </div>
             <div class="info">
               <div class="tags ">
                 
+                      <a href="https://telnetwork.github.io/ZEA1vWG1d/" class="ctag ctag-0 ctag-ZEA1vWG1d" aria-label="">Tools</a>
+                    
               </div>
-              <h1 class="title ularge white bold">Ubuntu 编译 PHP 7.2.28</h1>
+              <h1 class="title ularge white bold">FPM 打包</h1>
             </div>
           </div>
         </div>  
@@ -103,75 +104,128 @@ apt-get install libxml2-dev libjpeg-dev libpng-dev libfreetype6-dev libzip-dev l
             <article class="main-article post">
               <section class="post-content">
                 <div class="text">
-                  <h3 id="安装依赖软件">安装依赖软件</h3>
-<pre><code class="language-shell">apt-get install libxml2-dev libjpeg-dev libpng-dev libfreetype6-dev libzip-dev libc-client2007e-dev libglib2.0-dev libpng12-dev libssl-dev  zlib1g-dev apt-get install libxtst-dev
+                  <pre><code class="language-shell">yum -y install lua-devel patch libgeoip libgeoip-dev libtool libtool-ltdl libtool-ltdl-devel libxslt-devel libxslt libxml2 libxml2-dev libxml2-devel gd-devel gd GeoIP GeoIP-devel GeoIP-data gperftools gcc gcc-c++ zlip zlib-devel zlib make cmake autoconf openssl-devel libwebp-devel libwebp libvpx initscripts
 </code></pre>
-<h3 id="编译-libiconv-组件">编译 libiconv 组件</h3>
-<pre><code class="language-shell">wget https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.16.tar.gz
-tar xf libiconv-1.16.tar.gz  &amp;&amp; cd libiconv-1.16
-./configure --prefix=/usr/local ; echo $?
-make  &amp;&amp; make install
-ldconfig
-</code></pre>
-<h3 id="编译-php">编译 PHP</h3>
-<pre><code class="language-shell">wget https://www.php.net/distributions/php-7.2.28.tar.gz
-tar xf php-7.2.28.tar.gz  &amp;&amp; cd php-7.2.28
-</code></pre>
-<pre><code class="language-shell">./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/php/etc --with-config-file-scan-dir=/usr/local/php/etc/conf.d  --enable-fpm --with-fpm-user=www --with-fpm-group=www --enable-mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-iconv-dir --enable-exif --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --enable-mbregex --enable-mbstring --enable-ftp --with-gd --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap --with-gettext --disable-fileinfo --enable-maintainer-zts --disable-debug ; echo $?
+<pre><code class="language-shell">fpm -s dir -t rpm -n nginx -v 1.16.1 --iteration 1.el7 -C /fpm-build -p /root --description 'Nginx rpm For Centos7' -d 'pcre,pcre-devel,openssl-devel,jemalloc,glibc' --post-install /tmp/install_after.sh --post-uninstall /tmp/remove_after.sh
 
-make install ; echo $?
-cp php.ini-development /usr/local/php/etc/php.ini  // 复制配置文件
+
+fpm -s dir -t rpm -n nginx -v 1.16.1 --iteration 1.el7 -p /root --description 'Nginx rpm For Centos7' --post-install /tmp/install_after.sh --post-uninstall /tmp/remove_after.sh /usr/local/nginx /opt/modules /data
+</code></pre>
+<pre><code class="language-shell">-t rpm \      #选择打包的类型，可以是deb或rpm等等等等
+-n nginx-wangsu \    #设定软件包的名称
+-v 1.16.0 \          #设定软件包的版本
+--iteration 1.el7 \  #设定rpm包的版本
+-C /fpm-build \      #指定上下文目录
+-p /root \           #指定rpm包生成的路径
+--description 'Wangsu Nginx rpm For Centos7' \
+--url 'www.wangsucloud.com' \
+-d 'jemalloc &gt;= 3.5.0,glibc &gt;= 2.16' \  
+#-d用于设定nginx依赖的软件包，在使用yum安装的时候会根据这个配置解决依赖关系
+-m 'laihehui&lt;laihh@wangsu.com&gt;' \    #设定打包人的个人信息
+--post-install /root/ng/tmp/install_after.sh \    #设定rpm安装脚本
+--post-uninstall /root/ng/tmp/remove_after.sh     #设定rpm卸载脚本
+</code></pre>
+<p>echo '/usr/local/lib' &gt;&gt; /etc/ld.so.conf.d/local.conf</p>
+<pre><code class="language-shell">[root@site1 tmp]# cat install_after.sh
+#!/usr/bin/env bash
+
+source /etc/rc.d/init.d/functions
+getent group www &gt; /dev/null || groupadd -r www
+getent passwd www &gt; /dev/null || useradd -r -g www -s /sbin/nologin www
+
+
+ln -s /usr/local/nginx/sbin/nginx /usr/sbin/nginx
+</code></pre>
+<pre><code class="language-shell">[root@site1 tmp]# cat remove_after.sh
+#!/usr/bin/env bash
+source /etc/rc.d/init.d/functions
+/usr/bin/rm -rf \
+/usr/lib/systemd/system/nginx.service \
+/usr/local/nginx \
+/usr/sbin/nginx \
+/opt/modules \
+/data \
 </code></pre>
 <hr>
-<h4 id="报错-1">报错 1</h4>
-<blockquote>
-<p>-- more --&gt;llect2: error: ld returned 1 exit status<br>
-Makefile:291: recipe for target 'sapi/cli/php' failed<br>
-make: *** [sapi/cli/php] Error 1</p>
-</blockquote>
-<h4 id="解决">解决：</h4>
-<pre><code class="language-shell">ln -s /usr/local/lib/libiconv.so.2 /lib64/
-make ZEND_EXTRA_LIBS='-liconv' -j 1 ; echo $?
-</code></pre>
-<h4 id="报错2-如果基于centos-7-make时报错">报错2 （如果基于CentOS 7 make时报错）</h4>
-<blockquote>
-<p>缺少curl扩展包<br>
-cURL 7.10.5 or greater... configure: error: cURL version 7.10.5 or later is required to compile php with cURL support</p>
-</blockquote>
-<h4 id="解决-2">解决：</h4>
-<pre><code class="language-shell">yum -y install curl-devel
+<pre><code class="language-shell">yum -y install epel-release
+yum install -y lrzsz vim unzip xz wget curl git sysstat make bash-completion bind-utils psmisc sshpass gcc-c++ gcc zlib-devel libxslt-devel gd-devel patch perl-devel libtool initscripts
+
+
+#!/usr/bin/env bash
+CREATEU() {
+source /etc/rc.d/init.d/functions
+getent group nginx &gt; /dev/null || groupadd -r nginx
+getent passwd nginx &gt; /dev/null || useradd -r -g nginx -s /sbin/nologin nginx
+}
+
+MAKEIN() {
+chown -R root.root /usr/local/src/
+./configure
 make
-</code></pre>
-<hr>
-<h3 id="启动脚本">启动脚本</h3>
-<blockquote>
-<p>Ubuntu<br>
-vim /lib/systemd/system/php-fpm.service</p>
-</blockquote>
-<blockquote>
-<p>CentOS<br>
-vim /usr/lib/systemd/system/php-fpm.service</p>
-</blockquote>
-<pre><code class="language-shell">[Unit]
-Description=The PHP FastCGI Process Manager
-Documentation=http://php.net/docs.php
-After=network.target
+make install
+echo -e &quot;\033[32mSuccess\033[0m&quot;
+cd /usr/local/src/
+}
 
-[Service]
-Type=simple
-PIDFile=/usr/local/php/var/run/php-fpm.pid
-ExecStart=/usr/local/php/sbin/php-fpm --nodaemonize --fpm-config /usr/local/php/etc/php-fpm.conf
-ExecReload=/bin/kill -USR2 $MAINPID
-LimitNOFILE=1000000
-LimitNPROC=1000000
-LimitCORE=1000000
+MAKEINSTALL() {
+mkdir /usr/local/src/ ; cd /usr/local/src/
+wget -P /usr/local/src/ http://tar.realbwt.com/nginx/libunwind-1.1.tar.gz
+tar -xf libunwind-1.1.tar.gz &amp;&amp; cd /usr/local/src/libunwind-1*
+MAKEIN &gt; /dev/null
+wget -P /usr/local/src/ http://tar.realbwt.com/nginx/gperftools-2.1.tar.gz
+tar -xf gperftools-2.1.tar.gz &amp;&amp; cd gperftools-2.1*
+MAKEIN &gt; /dev/null
+wget -P /usr/local/src/ http://tar.realbwt.com/nginx/LuaJIT-2.0.3.tar.gz
+tar -xf LuaJIT-2.0.3.tar.gz &amp;&amp; cd LuaJIT-2.0*
+make &gt; /dev/null
+make install &gt; /dev/null
+cd /usr/local/src/
+wget -P /usr/local/src/ http://tar.realbwt.com/nginx/libmaxminddb-0.5.5.tar.gz
+tar -xf libmaxminddb-0.5.5.tar.gz &amp;&amp; cd libmaxminddb-0.5*
+MAKEIN &gt; /dev/null
+wget -P /usr/local/src/ http://tar.realbwt.com/nginx/GeoIP.tar.gz
+tar -xf GeoIP.tar.gz &amp;&amp; cd GeoIP*
+MAKEIN &gt; /dev/null
+cd
+}
 
-[Install]
-WantedBy=multi-user.target
-</code></pre>
-<pre><code class="language-shell">systemctl daemon-reload
-systemctl start php-fpm
-systemctl enable php-fpm
+SOLN() {
+ln -s /usr/local/lib/libmaxminddb.so.0 /usr/lib64/libmaxminddb.so.0
+ln -s /usr/local/lib/libunwind.so.8 /usr/lib64/libunwind.so.8
+ln -s /usr/local/lib/libluajit-5.1.so.2 /usr/lib64/libluajit-5.1.so.2
+ln -s /usr/local/lib/libtcmalloc_minimal.so.4 /usr/lib64/libtcmalloc_minimal.so.4
+ln -s /usr/local/lib/libprofiler.so.0 /usr/lib64/libprofiler.so.0
+}
+
+CREATEU &gt; /dev/null ; echo $? &amp;&amp; echo -e &quot;\033[32mSuccess\033[0m&quot;
+MAKEIN &gt; /dev/null ; echo $? &amp;&amp; echo -e &quot;\033[32mSuccess\033[0m&quot;
+MAKEINSTALL &gt; /dev/null ; echo $? &amp;&amp; echo -e &quot;\033[32mSuccess\033[0m&quot;
+SOLN &gt; /dev/null ; echo $? &amp;&amp; echo -e &quot;\033[32mSuccess\033[0m&quot;
+
+
+
+
+
+
+
+cat /etc/logrotate.d/nginx
+
+/data/nginx/logs/*.log
+{
+rotate 7
+daily
+dateext
+dateformat .%Y%m%d
+compress
+missingok
+notifempty
+create 0644 admin admin
+sharedscripts
+postrotate
+/usr/bin/killall -HUP rsyslogd &gt;/dev/null 2&gt;&amp;1 || true
+[ -f /var/run/nginx.pid ] &amp;&amp; kill -USR1 `cat /var/run/nginx.pid`
+endscript
+}
 </code></pre>
 
                 </div>
@@ -182,32 +236,6 @@ systemctl enable php-fpm
 
             <section class="related section">
               
-              <article class="prev grid-50 tablet-grid-50 grid-parent">
-                <div class="thumb cover lazy loaded" style="background-image: url('https://telnetwork.github.io/media/images/sTOvVvT21.jpg');"></div>
-                 <a href="https://telnetwork.github.io/OFw4xYCiU/" class="full-link"></a>
-                 <div class="info">
-                  <time datetime="2020-03-22">2020-03-22</time>
-                  <h4 class="title white no-margin">《疯娘》</h4>
-                </div>
-                 <span class="epcl-button red">
-                  <img src="https://telnetwork.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
-                </span>
-                <div class="overlay"></div>
-              </article>
-              
-              
-              <article class="next grid-50 tablet-grid-50 grid-parent">
-                <div class="thumb cover lazy loaded" style="background-image: url('https://telnetwork.github.io/media/images/qYDcJ3dZc.jpg');"></div>
-                 <a href="https://telnetwork.github.io/centos-7-yuan-ma-bian-yi-nginx/" class="full-link"></a>
-                 <div class="info">
-                  <time datetime="2020-03-21">2020-03-21</time>
-                  <h4 class="title white no-margin">CentOS 7 源码编译 Nginx</h4>
-                </div>
-                 <span class="epcl-button red">
-                  <img src="https://telnetwork.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
-                </span>
-                <div class="overlay"></div>
-              </article>
               
 
                 <div class="clear"></div>
