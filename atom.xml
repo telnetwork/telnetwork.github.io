@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://telnetwork.github.io</id>
     <title>天天记</title>
-    <updated>2020-03-26T10:07:32.735Z</updated>
+    <updated>2020-03-26T11:07:53.984Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://telnetwork.github.io"/>
     <link rel="self" href="https://telnetwork.github.io/atom.xml"/>
@@ -10,13 +10,6 @@
     <logo>https://telnetwork.github.io/images/avatar.png</logo>
     <icon>https://telnetwork.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 天天记</rights>
-    <entry>
-        <title type="html"><![CDATA[Test]]></title>
-        <id>https://telnetwork.github.io/MfBsAaNb6/</id>
-        <link href="https://telnetwork.github.io/MfBsAaNb6/">
-        </link>
-        <updated>2020-03-26T10:06:34.000Z</updated>
-    </entry>
     <entry>
         <title type="html"><![CDATA[CentOS6 最简网卡配置]]></title>
         <id>https://telnetwork.github.io/V5VV5vrE4/</id>
@@ -79,5 +72,12 @@
         <link href="https://telnetwork.github.io/crZU3STfj/">
         </link>
         <updated>2020-03-22T13:38:27.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tomcat 强制重定向HTTPS]]></title>
+        <id>https://telnetwork.github.io/GFWEdWHeu/</id>
+        <link href="https://telnetwork.github.io/GFWEdWHeu/">
+        </link>
+        <updated>2020-03-22T13:30:05.000Z</updated>
     </entry>
 </feed>
