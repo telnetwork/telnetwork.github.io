@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>/dev/null | 天天记</title>
+<title>CentOS6.8 升级内核安装Docker | 天天记</title>
 <meta name="description" content="温故而知新" />
 <link rel="shortcut icon" href="https://telnetwork.github.io/favicon.ico">
 <link rel="stylesheet" href="https://telnetwork.github.io/styles/main.css">
@@ -15,14 +15,17 @@
 <script src="https://telnetwork.github.io/media/js/jquery.magnific-popup.min.js"></script>
 <script src="https://telnetwork.github.io/media/js/functions.js"></script>
     <meta name="referrer" content="never">
-    <meta name="description" content="输出到空设备
-/dev/null 2&gt;&amp;1
-1&gt;/dev/null 2&gt;&amp;1
-2&gt;/dev/null
+    <meta name="description" content="查看当前系统版本及内核版本
 
-参考：
-https://blog.csdn.net/wuruixn/article/detail..." />
-    <meta name="keywords" content="命令记录" />
+安装 Elrepo 源
+访问：http://www.elrepo.org/ 
+根据当前CentOS版本下载对应的Elrepo
+
+
+导入公钥
+注：在Elrepo源中有两个版本的内核：
+长期支持版本：yum -y ..." />
+    <meta name="keywords" content="" />
     <script src="https://telnetwork.github.io/media/js/waterfall.min.js"></script>
     <script src="https://telnetwork.github.io/media/js/prism.min.js"></script>
   </head>
@@ -86,21 +89,19 @@ https://blog.csdn.net/wuruixn/article/detail..." />
         <div class="center content">
           <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
             <div class="meta top"> 
-              <time class="meta-info" style="float:left;" datetime="2020-03-22"><i class="fa fa-calendar"></i><span class="lately">4 天前</span></time>
+              <time class="meta-info" style="float:left;" datetime="2020-03-26"><i class="fa fa-calendar"></i><span class="lately">20 分钟前</span></time>
               
-              <a href="https://telnetwork.github.io/MdHLLPjzx/#comments" class="comments meta-info" title="">
-                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/MdHLLPjzx/"> </span>
+              <a href="https://telnetwork.github.io/egGFdoLgb/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/egGFdoLgb/"> </span>
               </a>
-              <span id="/MdHLLPjzx/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              <span id="/egGFdoLgb/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
               
             </div>
             <div class="info">
               <div class="tags ">
                 
-                      <a href="https://telnetwork.github.io/nkCE1-03f/" class="ctag ctag-0 ctag-nkCE1-03f" aria-label="">命令记录</a>
-                    
               </div>
-              <h1 class="title ularge white bold">/dev/null</h1>
+              <h1 class="title ularge white bold">CentOS6.8 升级内核安装Docker</h1>
             </div>
           </div>
         </div>  
@@ -110,14 +111,37 @@ https://blog.csdn.net/wuruixn/article/detail..." />
             <article class="main-article post">
               <section class="post-content">
                 <div class="text">
-                  <h2 id="输出到空设备">输出到空设备</h2>
-<pre><code class="language-shell">/dev/null 2&gt;&amp;1
-1&gt;/dev/null 2&gt;&amp;1
-2&gt;/dev/null
+                  <h3 id="查看当前系统版本及内核版本">查看当前系统版本及内核版本</h3>
+<figure data-type="image" tabindex="1"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/Kernel-654fa719.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<h3 id="安装-elrepo-源">安装 Elrepo 源</h3>
+<pre><code class="language-shell">访问：http://www.elrepo.org/ 
+根据当前CentOS版本下载对应的Elrepo
 </code></pre>
-<h2 id="参考">参考：</h2>
-<p>https://blog.csdn.net/wuruixn/article/details/8535378<br>
-https://blog.51cto.com/meiling/2057676</p>
+<figure data-type="image" tabindex="2"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/Elrepo-b3d6324c.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<h3 id="导入公钥">导入公钥</h3>
+<pre><code class="language-shell">注：在Elrepo源中有两个版本的内核：
+长期支持版本：yum -y --enablerepo=elrepo-kernel install kernel-lt &amp;&amp; echo $?
+线上最新版本：yum -y --enablerepo=elrepo-kernel install kernel-ml
+</code></pre>
+<h3 id="修改grub">修改grub</h3>
+<pre><code class="language-shell">vi /etc/grub.conf
+default=1 改为 default=0
+</code></pre>
+<h3 id="重启系统reboot">重启系统：reboot</h3>
+<figure data-type="image" tabindex="3"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/version-d72af6df.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<p><code>内核升级完成！！！</code></p>
+<hr>
+<h3 id="安装-docker">安装 Docker</h3>
+<pre><code class="language-shell">yum -y install docker-io
+注：如何显示没有该package，则先执行下面这条指令，有则忽略
+yum -y install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+</code></pre>
+<h3 id="启动-docker">启动 Docker</h3>
+<pre><code class="language-shell">service docker start （Docker C/S 模式）
+chkconfig docker on  （开机自启动）
+查看 Docker 版本：docker version
+查看 Docker 日志：tailf /var/log/docker
+</code></pre>
 
                 </div>
                 <div class="clear"></div>
@@ -127,26 +151,13 @@ https://blog.51cto.com/meiling/2057676</p>
 
             <section class="related section">
               
-              <article class="prev grid-50 tablet-grid-50 grid-parent">
-                <div class="thumb cover lazy loaded" style="background-image: url('https://telnetwork.github.io/media/images/b69gVEo6w.jpg');"></div>
-                 <a href="https://telnetwork.github.io/1jLKreDAt/" class="full-link"></a>
-                 <div class="info">
-                  <time datetime="2020-03-22">2020-03-22</time>
-                  <h4 class="title white no-margin">CentOS 7 Install iptables</h4>
-                </div>
-                 <span class="epcl-button red">
-                  <img src="https://telnetwork.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
-                </span>
-                <div class="overlay"></div>
-              </article>
-              
               
               <article class="next grid-50 tablet-grid-50 grid-parent">
-                <div class="thumb cover lazy loaded" style="background-image: url('https://telnetwork.github.io/media/images/nkCE1-03f.jpg');"></div>
-                 <a href="https://telnetwork.github.io/3GICpCaQU/" class="full-link"></a>
+                <div class="thumb cover lazy loaded" style="background-image: url('https://telnetwork.github.io/media/images/qpAr93K7c.jpg');"></div>
+                 <a href="https://telnetwork.github.io/V5VV5vrE4/" class="full-link"></a>
                  <div class="info">
                   <time datetime="2020-03-22">2020-03-22</time>
-                  <h4 class="title white no-margin">CentOS 查看系统版本信息</h4>
+                  <h4 class="title white no-margin">CentOS6 最简网卡配置</h4>
                 </div>
                  <span class="epcl-button red">
                   <img src="https://telnetwork.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
