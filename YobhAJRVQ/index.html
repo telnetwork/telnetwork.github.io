@@ -1,0 +1,512 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>华为Switch VLAN-Trunk | 天天记</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://telnetwork.github.io/favicon.ico">
+<link rel="stylesheet" href="https://telnetwork.github.io/styles/main.css">
+
+<script src="https://telnetwork.github.io/media/js/jquery.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/aos.js"></script>
+<script src="https://telnetwork.github.io/media/js/pace.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/view-image.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="
+&lt;Huawei&gt;undo terminal monitor         \\ 关闭信息提示
+# Cisco的防弹信息提示:logging synchronous
+# Cisco关闭域名查询：no ip domain-loo..." />
+    <meta name="keywords" content="Network" />
+    <script src="https://telnetwork.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://telnetwork.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://telnetwork.github.io"><img src="/media/images/logoo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://telnetwork.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1585217247472" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2020-03-22"><i class="fa fa-calendar"></i><span class="lately">4 天前</span></time>
+              
+              <a href="https://telnetwork.github.io/YobhAJRVQ/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/YobhAJRVQ/"> </span>
+              </a>
+              <span id="/YobhAJRVQ/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://telnetwork.github.io/6ZnsQrOu0/" class="ctag ctag-0 ctag-6ZnsQrOu0" aria-label="">Network</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">华为Switch VLAN-Trunk</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <figure data-type="image" tabindex="1"><img src="https://img.hacpai.com/bing/20180326.jpg?imageView2/1/w/960/h/540/interlace/1/q/100" alt="" loading="lazy"></figure>
+<pre><code class="language-c">&lt;Huawei&gt;undo terminal monitor         \\ 关闭信息提示
+# Cisco的防弹信息提示:logging synchronous
+# Cisco关闭域名查询：no ip domain-lookup
+# Cisco设置控制台会话永不超时：no exec-time
+&lt;Huawei&gt;system-view
+[Huawei]sysname SW1
+</code></pre>
+<p><code>华为 Switch S3700 三层交换</code></p>
+<h3 id="配置-trunk-时报错">配置 Trunk 时报错</h3>
+<pre><code class="language-c">[SW1-Ethernet0/0/15]port link-type trunk        // 更改接口链路类型为trunk
+Error: Please renew the default configurations.（错误：请更新默认配置.）
+# 需要一层一层的来删除配置，直到恢复到默认的配置.
+</code></pre>
+<h3 id="从后往前回滚配置">从后往前回滚配置</h3>
+<pre><code class="language-c">[SW1]interface Ethernet 0/0/15                             // 进入接口
+[SW1-Ethernet0/0/15]undo port default vlan 11              // 将该接口从 vlan 11 中移除
+[SW1-Ethernet0/0/15]undo port link-type                    // 恢复该接口为默认链路类型，华为交换机的接口默认是Hybrid类型的，而Hybrid类型的接口不允许使用VLAN视图下的port命令来添加端口。只有Access类型的接口支持VLAN视图下的port命令来添加
+[SW1-Ethernet0/0/15]port link-type trunk                   // 更改接口链路类型为trunk
+[SW1-Ethernet0/0/15]port trunk allow-pass vlan 11 12       // vlan all 代表所有
+[SW1-Ethernet0/0/15]display this                           // 查看当前下的配置
+[SW1-Ethernet0/0/15]quit
+[SW1]display current
+...
+</code></pre>
+<h3 id="接口加入-vlan">接口加入 VLAN</h3>
+<pre><code class="language-c">&lt;SW1&gt;sys
+[SW1]vlan 10                                 // 创建 VLAN 10，并进入了vlan 10
+[SW1-valn10]quit                             // 返回配置模式
+[SW1]interface Ethernet 0/0/15               // 进入15接口
+[SW1-Ethernet0/0/15]port link-type access    // 配置接口链路类型
+[SW1-Ethernet0/0/15]port default vlan 10     // 将15接口加入VLAN 10
+</code></pre>
+<h3 id="将多个接口加入到-vlan-中">将多个接口加入到 VLAN 中</h3>
+<pre><code class="language-c">&lt;SW1&gt;sys
+[SW1]vlan 10
+[SW1-vlan 10]prot Ethernet 0/0/1 to 0/0/14    //将1口到14口加入到vlan10中
+# 此处会报错：Error: Trunk or Hybrid port(s) can not be added or deleted in this manner.
+# 需要将端口类型更改为：access
+# 可采用端口组的方式操作
+# 注意如果其中某个接口已经有了其他配置，需要先清除该接口的配置（恢复缺省配置），再将该接口加入port-group
+# 清除接口配置：[SW1]clear configuration interface  Ethernet 0/0/1，输入 y
+# 因清除接口下的配置后为shuadown(关闭)状态，需要 undo shutdown 开启接口
+[SW1-valn 10]quit
+</code></pre>
+<h3 id="配置-vlan-管理-ip">配置 vlan 管理 IP</h3>
+<pre><code class="language-c">&lt;SW1&gt;sys
+[SW1]int Vlanif 10
+[SW1-Vlanif10]ip address 10.10.10.254 255.255.0.0
+[SW1-Vlanif10]quit
+</code></pre>
+<h3 id="配置默认网关">配置默认网关</h3>
+<pre><code class="language-c">&lt;SW1&gt;sys
+[SW1]ip route-static 0.0.0.0 0.0.0.0 10.10.10.1
+</code></pre>
+<h3 id="保存配置重置配置">保存配置，重置配置</h3>
+<pre><code class="language-c">&lt;SW1&gt;save                         // 保存配置
+&lt;SW1&gt;reset saved-configuration    // y 重置配置，恢复出厂设置
+&lt;SW1&gt;reboot                       // 重启，重启后要确认配置是否已经初始化了.
+</code></pre>
+<hr>
+<h2 id="补充">补充</h2>
+<h4 id="vlan">VLAN</h4>
+<pre><code class="language-c">&lt;SW1&gt;sys
+[SW1]undo vlan10                     // 删除vlan 10
+[SW1]vlan batch 10 to 20             // 批量创建连续的VLAN
+[SW1]vlan batch 20 60 80             // 批量创建不连续的VLAN
+[SW1]undo vlan batch 10 to 20        // 批量删除连续的VLAN
+[SW1]undo vlan batch 20 60 80        // 批量删除不连续的VLAN
+[SW1]display vlan
+</code></pre>
+<h4 id="port-group华为没有-range-命令由端口组代替">port-group，华为没有 range 命令，由端口组代替</h4>
+<pre><code class="language-c">&lt;SW1&gt;sys
+[SW1]port-group test01                                                             //创建组 id为 test01
+[SW1-port-group-test01]group-member Ethernet 0/0/1 to Ethernet 0/0/3               //将连续的接口，加入test01组成为test01组成员
+[SW1-port-group-test01]port link-type access                                       //更改链路类型为：access，会应用到test01组中的所有接口上
+[SW1-port-group-test01]port default vlan 10                                        //将 test01组 加入VLAN 10
+[SW1]display port-group all //查看组的信息
+# 如果单独修改了端口组中的某个接口的配置，是不会影响其他端口的
+
+# 临时端口组配置
+# [SW1]port-group group-member Ethernet 0/0/1 to Ethernet 0/0/3
+7
+# 其他的操作与永久端口组配置一样
+</code></pre>
+<h3 id="vlan-间互通">VLAN 间互通</h3>
+<pre><code class="language-c">现在大部分三层交换机默认都是VLAN互通的
+vlna只要配置了地址，那么不同vlan之间就会生成静态路由，不做ACL的话，默认这两个网络是通的，而且是通过三层的方式互通
+</code></pre>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://telnetwork.github.io/media/images/6ZnsQrOu0.jpg');"></div>
+                 <a href="https://telnetwork.github.io/GuyMfUdDd/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2020-03-22">2020-03-22</time>
+                  <h4 class="title white no-margin">华为交换配置SSH登录</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://telnetwork.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://telnetwork.github.io/media/images/6ZnsQrOu0.jpg');"></div>
+                 <a href="https://telnetwork.github.io/RQ_S1Sf8Q/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2020-03-22">2020-03-22</time>
+                  <h4 class="title white no-margin">防火墙发展简述</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://telnetwork.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                
+                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+<div class="clear"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'a3390685fa1d4f716667',
+    clientSecret: '56ecd6ae425ce09aaddabb0d9c454f71e32feeac',
+    repo: 'telnetwork.github.io',
+    owner: 'telnetwork',
+    admin: ['telnetwork'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+                
+                
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://telnetwork.github.io/MfBsAaNb6/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2020-03-26">2020-03-26</time>
+                      <h4 class="title usmall">
+                        <a href="https://telnetwork.github.io/MfBsAaNb6/">Test</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://telnetwork.github.io/V5VV5vrE4/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2020-03-22">2020-03-22</time>
+                      <h4 class="title usmall">
+                        <a href="https://telnetwork.github.io/V5VV5vrE4/">CentOS6 最简网卡配置</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://telnetwork.github.io/Pe7DcL-Pv/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2020-03-22">2020-03-22</time>
+                      <h4 class="title usmall">
+                        <a href="https://telnetwork.github.io/Pe7DcL-Pv/">常见端口</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://telnetwork.github.io/qpAr93K7c/" class="ctag ctag-0 ctag-qpAr93K7c" aria-label="">Linux</a>
+                    
+                      <a href="https://telnetwork.github.io/6ZnsQrOu0/" class="ctag ctag-1 ctag-6ZnsQrOu0" aria-label="">Network</a>
+                    
+                      <a href="https://telnetwork.github.io/qYDcJ3dZc/" class="ctag ctag-2 ctag-qYDcJ3dZc" aria-label="">Nginx</a>
+                    
+                      <a href="https://telnetwork.github.io/_FcjZ0qe_/" class="ctag ctag-3 ctag-_FcjZ0qe_" aria-label="">Tomcat</a>
+                    
+                      <a href="https://telnetwork.github.io/GCcOQFcNI/" class="ctag ctag-4 ctag-GCcOQFcNI" aria-label="">Ubuntu</a>
+                    
+                      <a href="https://telnetwork.github.io/nkCE1-03f/" class="ctag ctag-5 ctag-nkCE1-03f" aria-label="">命令记录</a>
+                    
+                      <a href="https://telnetwork.github.io/b69gVEo6w/" class="ctag ctag-6 ctag-b69gVEo6w" aria-label="">Linux-Service</a>
+                    
+                      <a href="https://telnetwork.github.io/LAb5h4nZW/" class="ctag ctag-7 ctag-LAb5h4nZW" aria-label="">Systemd</a>
+                    
+                      <a href="https://telnetwork.github.io/OXGvdsKht/" class="ctag ctag-8 ctag-OXGvdsKht" aria-label="">JDK</a>
+                    
+                      <a href="https://telnetwork.github.io/pFMWpW7Sn/" class="ctag ctag-9 ctag-pFMWpW7Sn" aria-label="">sed</a>
+                    
+                      <a href="https://telnetwork.github.io/gtA_HuPUP/" class="ctag ctag-10 ctag-gtA_HuPUP" aria-label="">grep</a>
+                    
+                      <a href="https://telnetwork.github.io/ZEA1vWG1d/" class="ctag ctag-11 ctag-ZEA1vWG1d" aria-label="">Tools</a>
+                    
+                      <a href="https://telnetwork.github.io/l3L8MzPRU/" class="ctag ctag-12 ctag-l3L8MzPRU" aria-label="">Shell-Script</a>
+                    
+                      <a href="https://telnetwork.github.io/9f4W__SbX/" class="ctag ctag-13 ctag-9f4W__SbX" aria-label="">Docker</a>
+                    
+                      <a href="https://telnetwork.github.io/3EmKV5KYj/" class="ctag ctag-14 ctag-3EmKV5KYj" aria-label="">vim</a>
+                    
+                      <a href="https://telnetwork.github.io/sTOvVvT21/" class="ctag ctag-15 ctag-sTOvVvT21" aria-label="">shortstory</a>
+                    
+                      <a href="https://telnetwork.github.io/HZ8uq8-r6/" class="ctag ctag-16 ctag-HZ8uq8-r6" aria-label="">PHP</a>
+                    
+                      <a href="https://telnetwork.github.io/NGZpmwZju/" class="ctag ctag-17 ctag-NGZpmwZju" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://telnetwork.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">天天记</a></h4>
+                    <p class="founder">温故而知新</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://telnetwork.github.io"><img src="\media\images\custom-footerLogo.jpg" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 44 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://telnetwork.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

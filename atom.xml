@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://telnetwork.github.io</id>
     <title>天天记</title>
-    <updated>2020-03-22T11:59:43.038Z</updated>
+    <updated>2020-03-26T10:07:32.735Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://telnetwork.github.io"/>
     <link rel="self" href="https://telnetwork.github.io/atom.xml"/>
@@ -11,65 +11,73 @@
     <icon>https://telnetwork.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 天天记</rights>
     <entry>
-        <title type="html"><![CDATA[TCP_IP 元组]]></title>
-        <id>https://telnetwork.github.io/E7bsHAxU0/</id>
-        <link href="https://telnetwork.github.io/E7bsHAxU0/">
+        <title type="html"><![CDATA[Test]]></title>
+        <id>https://telnetwork.github.io/MfBsAaNb6/</id>
+        <link href="https://telnetwork.github.io/MfBsAaNb6/">
         </link>
-        <updated>2020-03-22T11:57:06.000Z</updated>
+        <updated>2020-03-26T10:06:34.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[vi中删除空格]]></title>
-        <id>https://telnetwork.github.io/NiZXZ5Ihn/</id>
-        <link href="https://telnetwork.github.io/NiZXZ5Ihn/">
+        <title type="html"><![CDATA[CentOS6 最简网卡配置]]></title>
+        <id>https://telnetwork.github.io/V5VV5vrE4/</id>
+        <link href="https://telnetwork.github.io/V5VV5vrE4/">
         </link>
-        <updated>2020-03-22T11:55:33.000Z</updated>
+        <updated>2020-03-22T14:01:44.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Docker 加速]]></title>
-        <id>https://telnetwork.github.io/WoYbBmrB_/</id>
-        <link href="https://telnetwork.github.io/WoYbBmrB_/">
+        <title type="html"><![CDATA[常见端口]]></title>
+        <id>https://telnetwork.github.io/Pe7DcL-Pv/</id>
+        <link href="https://telnetwork.github.io/Pe7DcL-Pv/">
         </link>
-        <updated>2020-03-22T11:54:04.000Z</updated>
+        <updated>2020-03-22T14:00:31.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[休息休息]]></title>
-        <id>https://telnetwork.github.io/t1awMY7Y9/</id>
-        <link href="https://telnetwork.github.io/t1awMY7Y9/">
+        <title type="html"><![CDATA[Nginx 正向代理]]></title>
+        <id>https://telnetwork.github.io/zDfN3L9d7/</id>
+        <link href="https://telnetwork.github.io/zDfN3L9d7/">
         </link>
-        <updated>2020-03-22T11:53:13.000Z</updated>
+        <updated>2020-03-22T13:57:27.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[《疯娘》]]></title>
-        <id>https://telnetwork.github.io/OFw4xYCiU/</id>
-        <link href="https://telnetwork.github.io/OFw4xYCiU/">
+        <title type="html"><![CDATA[修改 Tomcat 时区]]></title>
+        <id>https://telnetwork.github.io/rUo-DdFdk/</id>
+        <link href="https://telnetwork.github.io/rUo-DdFdk/">
         </link>
-        <updated>2020-03-22T11:51:03.000Z</updated>
+        <updated>2020-03-22T13:55:18.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Ubuntu 编译 PHP 7.2.28]]></title>
-        <id>https://telnetwork.github.io/FImup81pN/</id>
-        <link href="https://telnetwork.github.io/FImup81pN/">
+        <title type="html"><![CDATA[Tomcat 加速启动]]></title>
+        <id>https://telnetwork.github.io/yhEQlAM4W/</id>
+        <link href="https://telnetwork.github.io/yhEQlAM4W/">
         </link>
-        <updated>2020-03-21T15:58:14.000Z</updated>
+        <updated>2020-03-22T13:52:46.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[CentOS 7 源码编译 Nginx]]></title>
-        <id>https://telnetwork.github.io/centos-7-yuan-ma-bian-yi-nginx/</id>
-        <link href="https://telnetwork.github.io/centos-7-yuan-ma-bian-yi-nginx/">
+        <title type="html"><![CDATA[Ubuntu 更新源]]></title>
+        <id>https://telnetwork.github.io/KjzUq3UyX/</id>
+        <link href="https://telnetwork.github.io/KjzUq3UyX/">
         </link>
-        <updated>2020-03-21T12:02:51.000Z</updated>
+        <updated>2020-03-22T13:49:40.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://telnetwork.github.io/hello-gridea/</id>
-        <link href="https://telnetwork.github.io/hello-gridea/">
+        <title type="html"><![CDATA[简述 网络设备部署模式]]></title>
+        <id>https://telnetwork.github.io/krCEV837n/</id>
+        <link href="https://telnetwork.github.io/krCEV837n/">
         </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></content>
+        <updated>2020-03-22T13:49:02.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Switch 端口镜像]]></title>
+        <id>https://telnetwork.github.io/j0N5sl0e1/</id>
+        <link href="https://telnetwork.github.io/j0N5sl0e1/">
+        </link>
+        <updated>2020-03-22T13:43:08.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nginx alias 别名]]></title>
+        <id>https://telnetwork.github.io/crZU3STfj/</id>
+        <link href="https://telnetwork.github.io/crZU3STfj/">
+        </link>
+        <updated>2020-03-22T13:38:27.000Z</updated>
     </entry>
 </feed>
