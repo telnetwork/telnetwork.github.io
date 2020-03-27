@@ -75,7 +75,7 @@ nohup java -..." />
       <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
         <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
           <div class="search-wrapper section">
-            <form id="gridea-search-form" data-update="1585229054916" action="/search/index.html" class="search-form" _lpchecked="1">
+            <form id="gridea-search-form" data-update="1585326068254" action="/search/index.html" class="search-form" _lpchecked="1">
               <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
               <button type="submit" class="submit" aria-label="Submit">
                 <i class="fa fa-search-line"></i>
@@ -90,7 +90,7 @@ nohup java -..." />
         <div class="center content">
           <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
             <div class="meta top"> 
-              <time class="meta-info" style="float:left;" datetime="2020-03-22"><i class="fa fa-calendar"></i><span class="lately">4 天前</span></time>
+              <time class="meta-info" style="float:left;" datetime="2020-03-22"><i class="fa fa-calendar"></i><span class="lately">5 天前</span></time>
               
               <a href="https://telnetwork.github.io/xzcORH-3n/#comments" class="comments meta-info" title="">
                 <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/xzcORH-3n/"> </span>
@@ -166,29 +166,25 @@ nohup java -Xms1024m -Xmx2048m -XX:PermSize=512m -XX:MaxPermSize=512m -XX:MaxNew
               
             
               <div id="comments" class="bg-white hosted ">
-                
-                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-<div class="clear"></div>
-
+                <div class="clear"></div>
 <script>
-  var gitalk = new Gitalk({
-    clientID: 'a3390685fa1d4f716667',
-    clientSecret: '56ecd6ae425ce09aaddabb0d9c454f71e32feeac',
-    repo: 'telnetwork.github.io',
-    owner: 'telnetwork',
-    admin: ['telnetwork'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
+jQuery(document).ready(function($){
+    $('.vemoji-btn').text('😀');
+    $("#comments").on('click', 'span.vat',function(){
+        $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+        $('textarea#veditor').focus();
+    })
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+            if ($(window.location.hash).length) {
+                $('html, body').animate({scrollTop: $(window.location.hash).offset().top-200}, 600);
+                clearInterval(checkExist);
+            }
+        }, 100);
+    }
+})
 </script>
 
-                
-                
               </div>
             
 
@@ -416,7 +412,7 @@ nohup java -Xms1024m -Xmx2048m -XX:PermSize=512m -XX:MaxPermSize=512m -XX:MaxNew
         </div>
 
         <div class="logo">
-          <a href="https://telnetwork.github.io"><img src="\media\images\custom-footerLogo.jpg" alt=""></a>
+          <a href="https://telnetwork.github.io"><img src="\media\images\custom-footerLogo.png" alt=""></a>
         </div>
         <p class="published border-effect">
           ©2019 共 46 篇文章
@@ -432,6 +428,19 @@ nohup java -Xms1024m -Xmx2048m -XX:PermSize=512m -XX:MaxPermSize=512m -XX:MaxNew
     <div class="clear"></div>
 
         
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/valine/1.3.10/Valine.Pure.min.js"></script>
+<script>
+    new Valine({
+        el: '#comments',
+        appId: 'OsG545CAqPfCWfu53xUmIT6c-MdYXbMMI' ,
+        appKey: 'xCNsheoU68eBGlTCHIhU0dqm',
+        pageSize: 30,
+        placeholder: '既然来了，那就留个痕迹吧~',
+        visitor: true // 阅读量统计
+    })
+</script>
+    
 
       
     <script src="https://telnetwork.github.io/media/js/functions-post.js"></script>
