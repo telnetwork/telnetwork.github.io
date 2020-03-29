@@ -77,7 +77,7 @@ yum -y install lua-devel patch libtool libtool-ltdl libtool-ltd..." />
       <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
         <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
           <div class="search-wrapper section">
-            <form id="gridea-search-form" data-update="1585326068254" action="/search/index.html" class="search-form" _lpchecked="1">
+            <form id="gridea-search-form" data-update="1585465856256" action="/search/index.html" class="search-form" _lpchecked="1">
               <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
               <button type="submit" class="submit" aria-label="Submit">
                 <i class="fa fa-search-line"></i>
@@ -92,7 +92,7 @@ yum -y install lua-devel patch libtool libtool-ltdl libtool-ltd..." />
         <div class="center content">
           <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
             <div class="meta top"> 
-              <time class="meta-info" style="float:left;" datetime="2020-03-21"><i class="fa fa-calendar"></i><span class="lately">6 天前</span></time>
+              <time class="meta-info" style="float:left;" datetime="2020-03-21"><i class="fa fa-calendar"></i><span class="lately">8 天前</span></time>
               
               <a href="https://telnetwork.github.io/centos-7-yuan-ma-bian-yi-nginx/#comments" class="comments meta-info" title="">
                 <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/centos-7-yuan-ma-bian-yi-nginx/"> </span>
@@ -120,54 +120,54 @@ yum -y install lua-devel patch libtool libtool-ltdl libtool-ltd..." />
 <blockquote>
 <p>CentOS 7</p>
 </blockquote>
-<pre><code>yum -y install epel-release
+<pre><code class="language-shell">yum -y install epel-release
 yum update
 yum -y install lua-devel patch libtool libtool-ltdl libtool-ltdl-devel libxslt-devel libxslt libxml2 libxml2-devel gd-devel gd GeoIP GeoIP-devel GeoIP-data gperftools gcc gcc-c++ zlib-devel zlib make cmake autoconf openssl openssl-devel libwebp-devel libwebp libvpx perl-devel perl-ExtUtils-Embed autoconf automake gnome-common
 </code></pre>
 <blockquote>
 <p>Ubuntu</p>
 </blockquote>
-<pre><code>apt-get update
+<pre><code class="language-shell">apt-get update
 apt-get -y install libgd-dev build-essential zlib1g-dev libpcre3 libpcre3-dev libssl-dev libxslt1-dev libxml2-dev libgeoip-dev libgoogle-perftools-dev libperl-dev libtool openssl gcc g++ google-perftools
 </code></pre>
 <h3 id="pcre">PCRE</h3>
-<pre><code class="language-c++">wget https://ftp.pcre.org/pub/pcre/pcre-8.41.tar.gz
+<pre><code class="language-shell">wget https://ftp.pcre.org/pub/pcre/pcre-8.41.tar.gz
 tar -xf pcre-8.41.tar.gz -C /usr/local/ &amp;&amp; cd /usr/local/pcre-8.41
 ./configure --enable-utf8 ; echo $?     // --enable-utf8：对utf-8的支持
 make ; echo $?
 make install ; echo $?
 </code></pre>
 <h3 id="openssl">openssl</h3>
-<pre><code>wget https://github.com/openssl/openssl/archive/OpenSSL_1_1_1.tar.gz
+<pre><code class="language-shell">wget https://github.com/openssl/openssl/archive/OpenSSL_1_1_1.tar.gz
 tar -xf OpenSSL_1_1_1.tar.gz &amp;&amp; mv openssl-OpenSSL_1_1_1 /usr/local/openssl-1.1.1
 </code></pre>
 <h3 id="创建-nginx-运行用户">创建 Nginx 运行用户</h3>
-<pre><code>groupadd www
+<pre><code class="language-shell">groupadd www
 useradd www -g www -s /sbin/nologin -M
 </code></pre>
 <h3 id="官网下载-nginx-源码包">官网下载 Nginx 源码包</h3>
-<pre><code>wget http://nginx.org/download/nginx-1.16.1.tar.gz
+<pre><code class="language-shell">wget http://nginx.org/download/nginx-1.16.1.tar.gz
 tar -xf nginx-1.16.1.tar.gz &amp;&amp; cd nginx-1.16*
 </code></pre>
 <h3 id="扩展模块-1-headers">扩展模块 1---- headers</h3>
-<pre><code>git clone https://github.com/openresty/headers-more-nginx-module.git /usr/local/ngx_modules/ngx_headers
+<pre><code class="language-shell">git clone https://github.com/openresty/headers-more-nginx-module.git /usr/local/ngx_modules/ngx_headers
 </code></pre>
 <h3 id="扩展模块-2-echo">扩展模块 2 ---- echo</h3>
-<pre><code>git clone https://github.com/openresty/echo-nginx-module.git /usr/local/ngx_modules/ngx_echo
+<pre><code class="language-shell">git clone https://github.com/openresty/echo-nginx-module.git /usr/local/ngx_modules/ngx_echo
 </code></pre>
 <h3 id="扩展模块-3-brotli">扩展模块 3 ---- brotli</h3>
-<pre><code>git clone https://github.com/google/ngx_brotli.git /usr/local/ngx_modules/ngx_brotli
+<pre><code class="language-shell">git clone https://github.com/google/ngx_brotli.git /usr/local/ngx_modules/ngx_brotli
 </code></pre>
 <h3 id="扩展模块-4-cloudflare-zlib">扩展模块 4 ---- cloudflare-zlib</h3>
-<pre><code>git clone https://github.com/cloudflare/zlib.git /usr/local/ngx_modules/cloudflare_zlib
+<pre><code class="language-shell">git clone https://github.com/cloudflare/zlib.git /usr/local/ngx_modules/cloudflare_zlib
 </code></pre>
 <h3 id="扩展模块-5-sticky">扩展模块 5 ---- sticky</h3>
-<pre><code>wget https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng/get/master.tar.gz
+<pre><code class="language-shell">wget https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng/get/master.tar.gz
 tar xf master.tar.gz
 mv nginx-goodies-nginx-sticky-module-ng-08a395c66e42 /usr/local/ngx_modules/ngx_sticky
 </code></pre>
 <h3 id="扩展模块-6-luajit">扩展模块 6 ---- luajit</h3>
-<pre><code>wget https://github.com/openresty/luajit2/archive/v2.1-20200102.tar.gz
+<pre><code class="language-shell">wget https://github.com/openresty/luajit2/archive/v2.1-20200102.tar.gz
 tar xf v2.1-20200102.tar.gz &amp;&amp; mv luajit2-2.1-20200102 /usr/local/ngx_modules/luajit2-2.1
 cd /usr/local/ngx_modules/luajit2-2.1
 make &amp;&amp; make install
@@ -176,7 +176,7 @@ export LUA_INCLUDE_DIR=/usr/local/include/luajit-2.1
 ldconfig
 </code></pre>
 <h3 id="扩展模块-7-lua-cjson">扩展模块 7 ---- lua-cjson</h3>
-<pre><code>wget https://github.com/openresty/lua-cjson/archive/2.1.0.7.tar.gz
+<pre><code class="language-shell">wget https://github.com/openresty/lua-cjson/archive/2.1.0.7.tar.gz
 tar xf 2.1.0.7.tar.gz &amp;&amp; mv lua-cjson-2.1.0.7 /usr/local/ngx_modules/
 cd /usr/local/ngx_modules/lua-cjson-2.1.0.7
 make &amp;&amp; make install
@@ -184,21 +184,21 @@ export LUAJIT_LIB=/usr/local/lib
 export LUAJIT_INC=/usr/local/include/luajit-2.1
 </code></pre>
 <h3 id="扩展模块-8-ngx_devel_kit">扩展模块 8 ---- ngx_devel_kit</h3>
-<pre><code>wget https://github.com/vision5/ngx_devel_kit/archive/v0.3.1.tar.gz
+<pre><code class="language-shell">wget https://github.com/vision5/ngx_devel_kit/archive/v0.3.1.tar.gz
 tar -xf v0.3.1.tar.gz  &amp;&amp; mv ngx_devel_kit-0.3.1 /usr/local/ngx_modules/
 </code></pre>
 <h3 id="扩展模块-9-lua-nginx">扩展模块 9 ---- lua-nginx</h3>
-<pre><code>wget https://github.com/openresty/lua-nginx-module/archive/v0.10.14.tar.gz
+<pre><code class="language-shell">wget https://github.com/openresty/lua-nginx-module/archive/v0.10.14.tar.gz
 tar -xf v0.10.14.tar.gz &amp;&amp; mv lua-nginx-module-0.10.14 /usr/local/ngx_modules/
 </code></pre>
 <h4 id="为了方便以后重新编译nginx将lua变量写入etcprofile-中">为了方便以后重新编译Nginx,将lua变量写入/etc/profile 中</h4>
-<pre><code>#Lua
+<pre><code class="language-shell">#Lua
 export LUAJIT_LIB=/usr/local/lib
 export LUAJIT_INC=/usr/local/include/luajit-2.1
 export LUA_INCLUDE_DIR=/usr/local/include/luajit-2.1
 </code></pre>
 <h3 id="扩展模块-10-tcmallocubuntu-系统可以直接忽略该步骤以上apt中已安装">扩展模块 10  ---- TCMalloc；Ubuntu 系统可以直接忽略该步骤，以上apt中已安装</h3>
-<pre><code># 先编译安装libunwind
+<pre><code class="language-shell"># 先编译安装libunwind
 wget http://mirror.yongbok.net/nongnu/libunwind/libunwind-1.1.tar.gz
 tar -xf libunwind-1.1.tar.gz &amp;&amp; cd libunwind-1.1
 CFLAGS=-fPIC ./configure
@@ -216,7 +216,7 @@ echo '/usr/local/lib' &gt;&gt; /etc/ld.so.conf.d/local.conf
 ldconfig
 </code></pre>
 <h4 id="编译-nginx">编译 Nginx</h4>
-<pre><code>./configure \
+<pre><code class="language-shell">./configure \
 --add-module=/usr/local/ngx_modules/ngx_echo \
 --add-module=/usr/local/ngx_modules/ngx_brotli \
 --add-module=/usr/local/ngx_modules/ngx_concat \
@@ -286,12 +286,12 @@ make install ; echo $?
 
 </code></pre>
 <h4 id="创建目录">创建目录</h4>
-<pre><code>mkdir -pv /data/nginx/{tcmalloc,logs/hack,PID,proxy_cache,proxy_temp,tmp/client_body,tmp/fastcgi}
+<pre><code class="language-shell">mkdir -pv /data/nginx/{tcmalloc,logs/hack,PID,proxy_cache,proxy_temp,tmp/client_body,tmp/fastcgi}
 chown -R www.www /data/
 chmod 0777 /data/nginx/tcmalloc
 </code></pre>
 <h4 id="创建-systemd-服务文件">创建 systemd 服务文件</h4>
-<pre><code class="language-c++"># CentOS
+<pre><code class="language-shell"># CentOS
 /usr/lib/systemd/system/nginx.service
 
 # Ubuntu
@@ -321,7 +321,7 @@ EOF
 # rm：which rm
 </code></pre>
 <h4 id="管理">管理</h4>
-<pre><code>systemctl daemon-reload
+<pre><code class="language-shell">systemctl daemon-reload
 systemctl enable nginx
 systemctl start nginx
 systemctl stop nginx
