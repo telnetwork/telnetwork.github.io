@@ -1,0 +1,562 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>sysctl 参数调整 | 天天记</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://telnetwork.github.io/favicon.ico">
+<link rel="stylesheet" href="https://telnetwork.github.io/styles/main.css">
+
+<script src="https://telnetwork.github.io/media/js/jquery.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/aos.js"></script>
+<script src="https://telnetwork.github.io/media/js/pace.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/view-image.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="vim /etc/sysctl.conf
+# sysctl settings are defined through files in
+# /usr/lib/sysctl.d/, /run/sysctl.d/, and /etc/sysct..." />
+    <meta name="keywords" content="Linux" />
+    <script src="https://telnetwork.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://telnetwork.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://telnetwork.github.io"><img src="/media/images/logoo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://telnetwork.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="https://aidn.jp/mikutap/" class="menu">
+                      Mikutap
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1585563850893" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2020-03-29"><i class="fa fa-calendar"></i><span class="lately">1 天前</span></time>
+              
+              <a href="https://telnetwork.github.io/DbgdO70pJ/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/DbgdO70pJ/"> </span>
+              </a>
+              <span id="/DbgdO70pJ/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://telnetwork.github.io/qpAr93K7c/" class="ctag ctag-0 ctag-qpAr93K7c" aria-label="">Linux</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">sysctl 参数调整</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p><code>vim /etc/sysctl.conf</code></p>
+<pre><code class="language-shell"># sysctl settings are defined through files in
+# /usr/lib/sysctl.d/, /run/sysctl.d/, and /etc/sysctl.d/.
+#
+# Vendors settings live in /usr/lib/sysctl.d/.
+# To override a whole file, create a new file with the same in
+# /etc/sysctl.d/ and put new settings there. To override
+# only specific settings, add a file with a lexically later
+# name in /etc/sysctl.d/ and put new settings there.
+#
+# For more information, see sysctl.conf(5) and sysctl.d(5).
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+
+vm.swappiness = 0
+net.ipv4.neigh.default.gc_stale_time=120
+
+# see details in https://help.aliyun.com/knowledge_detail/39428.html
+net.ipv4.conf.all.rp_filter=0
+net.ipv4.conf.default.rp_filter=0
+net.ipv4.conf.default.arp_announce = 2
+net.ipv4.conf.lo.arp_announce=2
+net.ipv4.conf.all.arp_announce=2
+
+# see details in https://help.aliyun.com/knowledge_detail/41334.html
+net.ipv4.tcp_max_syn_backlog = 1024
+kernel.sysrq=1
+kernel.printk = 5
+
+
+################################## 优化 ###################################
+
+#禁用包过滤功能
+net.ipv4.ip_forward = 0
+
+# 开启SYN cookies 当出现syn等待溢出，启用cookies来处理，可防范少量的syn攻击
+net.ipv4.tcp_syncookies = 1
+
+#timewait的数量，默认是180000
+net.ipv4.tcp_max_tw_buckets = 2000
+
+#每个网络接口接收数据包的速率比内核处理这些包的速率快时，允许送到队列的数据包的最大数目
+net.core.netdev_max_backlog = 65535
+
+#为了打开对端的连接，内核需要发送一个SYN并附带一个回应前面一个SYN的ACK。也就是所谓三次握手中的第二次握手。这个设置决定了内核放弃连接之前发送SYN+ACK包的数量
+net.ipv4.tcp_synack_retries = 1
+
+#对于一个新建的tcp连接，内核要发送几个SYN连接请求才决定放弃
+net.ipv4.tcp_syn_retries = 1
+
+
+#开启TCP连接复用功能，允许将time_wait sockets重新用于新的TCP连接（主要针对time_wait连接）
+net.ipv4.tcp_tw_reuse = 1
+
+#对外连接端口范围
+net.ipv4.ip_local_port_range = 2048 63000
+
+#系统文件描述符总量
+fs.file-max = 102400
+
+# 避免放大攻击
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+
+# 开启恶意icmp错误消息保护
+net.ipv4.icmp_ignore_bogus_error_responses = 1
+
+# 允许更多的PIDs (减少滚动翻转问题); may break some programs 32768
+kernel.pid_max = 65536
+
+# 增加系统IP端口限制
+net.ipv4.ip_local_port_range = 4000 63000
+
+#设置为1即启用时间戳，慎用（开启后可能会出现能ping通，但是SSH|web|...|均无法连接）
+net.ipv4.tcp_timestamps = 0
+
+#ICMP禁止广播
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+
+vm.nr_hugepages=512
+</code></pre>
+<p><code>exec $SHELL</code></p>
+<h3 id="可参考">可参考</h3>
+<p><code>https://help.aliyun.com/knowledge_detail/39428.html</code><br>
+<code>https://help.aliyun.com/knowledge_detail/41334.html</code></p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://telnetwork.github.io/media/images/qpAr93K7c.jpg');"></div>
+                 <a href="https://telnetwork.github.io/G0HiGoxH7/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2020-03-29">2020-03-29</time>
+                  <h4 class="title white no-margin">ulimit 参数调整</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://telnetwork.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://telnetwork.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://telnetwork.github.io/T1TsAwU1d/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2020-03-26">2020-03-26</time>
+                  <h4 class="title white no-margin">虎威</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://telnetwork.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <div class="clear"></div>
+<script>
+jQuery(document).ready(function($){
+    $('.vemoji-btn').text('😀');
+    $("#comments").on('click', 'span.vat',function(){
+        $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+        $('textarea#veditor').focus();
+    })
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+            if ($(window.location.hash).length) {
+                $('html, body').animate({scrollTop: $(window.location.hash).offset().top-200}, 600);
+                clearInterval(checkExist);
+            }
+        }, 100);
+    }
+})
+</script>
+
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://telnetwork.github.io/ZaMP0KK0j/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2020-03-30">2020-03-30</time>
+                      <h4 class="title usmall">
+                        <a href="https://telnetwork.github.io/ZaMP0KK0j/">tar 打包 压缩</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://telnetwork.github.io/NkXMa9Up2/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2020-03-30">2020-03-30</time>
+                      <h4 class="title usmall">
+                        <a href="https://telnetwork.github.io/NkXMa9Up2/">RHEL7 更换Yum源</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://telnetwork.github.io/RYE3H2w_z/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2020-03-30">2020-03-30</time>
+                      <h4 class="title usmall">
+                        <a href="https://telnetwork.github.io/RYE3H2w_z/">最小化Linux 安装setup工具</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://telnetwork.github.io/nkCE1-03f/" class="ctag ctag-0 ctag-nkCE1-03f" aria-label="">命令记录</a>
+                    
+                      <a href="https://telnetwork.github.io/63ApH3uus/" class="ctag ctag-1 ctag-63ApH3uus" aria-label="">Yum</a>
+                    
+                      <a href="https://telnetwork.github.io/qpAr93K7c/" class="ctag ctag-2 ctag-qpAr93K7c" aria-label="">Linux</a>
+                    
+                      <a href="https://telnetwork.github.io/hxK5NO0wo/" class="ctag ctag-3 ctag-hxK5NO0wo" aria-label="">正则</a>
+                    
+                      <a href="https://telnetwork.github.io/6ZnsQrOu0/" class="ctag ctag-4 ctag-6ZnsQrOu0" aria-label="">Network</a>
+                    
+                      <a href="https://telnetwork.github.io/Nl2vJN0d_/" class="ctag ctag-5 ctag-Nl2vJN0d_" aria-label="">Ansible</a>
+                    
+                      <a href="https://telnetwork.github.io/J0z8LxWfsU/" class="ctag ctag-6 ctag-J0z8LxWfsU" aria-label="">ansible-playbook</a>
+                    
+                      <a href="https://telnetwork.github.io/l3L8MzPRU/" class="ctag ctag-7 ctag-l3L8MzPRU" aria-label="">Shell-Script</a>
+                    
+                      <a href="https://telnetwork.github.io/qYDcJ3dZc/" class="ctag ctag-8 ctag-qYDcJ3dZc" aria-label="">Nginx</a>
+                    
+                      <a href="https://telnetwork.github.io/_FcjZ0qe_/" class="ctag ctag-9 ctag-_FcjZ0qe_" aria-label="">Tomcat</a>
+                    
+                      <a href="https://telnetwork.github.io/GCcOQFcNI/" class="ctag ctag-10 ctag-GCcOQFcNI" aria-label="">Ubuntu</a>
+                    
+                      <a href="https://telnetwork.github.io/b69gVEo6w/" class="ctag ctag-11 ctag-b69gVEo6w" aria-label="">Linux-Service</a>
+                    
+                      <a href="https://telnetwork.github.io/LAb5h4nZW/" class="ctag ctag-12 ctag-LAb5h4nZW" aria-label="">Systemd</a>
+                    
+                      <a href="https://telnetwork.github.io/OXGvdsKht/" class="ctag ctag-13 ctag-OXGvdsKht" aria-label="">JDK</a>
+                    
+                      <a href="https://telnetwork.github.io/pFMWpW7Sn/" class="ctag ctag-14 ctag-pFMWpW7Sn" aria-label="">sed</a>
+                    
+                      <a href="https://telnetwork.github.io/gtA_HuPUP/" class="ctag ctag-15 ctag-gtA_HuPUP" aria-label="">grep</a>
+                    
+                      <a href="https://telnetwork.github.io/ZEA1vWG1d/" class="ctag ctag-16 ctag-ZEA1vWG1d" aria-label="">Tools</a>
+                    
+                      <a href="https://telnetwork.github.io/9f4W__SbX/" class="ctag ctag-17 ctag-9f4W__SbX" aria-label="">Docker</a>
+                    
+                      <a href="https://telnetwork.github.io/3EmKV5KYj/" class="ctag ctag-18 ctag-3EmKV5KYj" aria-label="">vim</a>
+                    
+                      <a href="https://telnetwork.github.io/sTOvVvT21/" class="ctag ctag-19 ctag-sTOvVvT21" aria-label="">shortstory</a>
+                    
+                      <a href="https://telnetwork.github.io/HZ8uq8-r6/" class="ctag ctag-20 ctag-HZ8uq8-r6" aria-label="">PHP</a>
+                    
+                      <a href="https://telnetwork.github.io/NGZpmwZju/" class="ctag ctag-21 ctag-NGZpmwZju" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://telnetwork.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">天天记</a></h4>
+                    <p class="founder">温故而知新</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://telnetwork.github.io"><img src="\media\images\custom-footerLogo.png" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 60 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/valine/1.3.10/Valine.Pure.min.js"></script>
+<script>
+    new Valine({
+        el: '#comments',
+        appId: 'OsG545CAqPfCWfu53xUmIT6c-MdYXbMMI' ,
+        appKey: 'xCNsheoU68eBGlTCHIhU0dqm',
+        pageSize: 30,
+        placeholder: '既然来了，那就留个痕迹吧~',
+        visitor: true // 阅读量统计
+    })
+</script>
+    
+
+      
+    <script src="https://telnetwork.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

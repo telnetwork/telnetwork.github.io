@@ -1,0 +1,526 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>tar 打包 压缩 | 天天记</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://telnetwork.github.io/favicon.ico">
+<link rel="stylesheet" href="https://telnetwork.github.io/styles/main.css">
+
+<script src="https://telnetwork.github.io/media/js/jquery.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/aos.js"></script>
+<script src="https://telnetwork.github.io/media/js/pace.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/view-image.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://telnetwork.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="选项：
+f：后面跟操作文件，最好放在最后面
+c：创建一个新的打包文件
+C ：后面跟路径，解压到指定路径
+z：使用gzip进行压缩，一般使用后缀（*.tar.gz）
+j：使用bzip2进行压缩，一般使用后缀（*.tar.bz2）
+x：对打包文..." />
+    <meta name="keywords" content="命令记录" />
+    <script src="https://telnetwork.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://telnetwork.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://telnetwork.github.io"><img src="/media/images/logoo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://telnetwork.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="https://aidn.jp/mikutap/" class="menu">
+                      Mikutap
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1585563850893" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2020-03-30"><i class="fa fa-calendar"></i><span class="lately">1 小时前</span></time>
+              
+              <a href="https://telnetwork.github.io/ZaMP0KK0j/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/ZaMP0KK0j/"> </span>
+              </a>
+              <span id="/ZaMP0KK0j/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://telnetwork.github.io/nkCE1-03f/" class="ctag ctag-0 ctag-nkCE1-03f" aria-label="">命令记录</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">tar 打包 压缩</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <h2 id="选项">选项：</h2>
+<pre><code class="language-shell">f：后面跟操作文件，最好放在最后面
+c：创建一个新的打包文件
+C ：后面跟路径，解压到指定路径
+z：使用gzip进行压缩，一般使用后缀（*.tar.gz）
+j：使用bzip2进行压缩，一般使用后缀（*.tar.bz2）
+x：对打包文件进行解压
+t：查看打包文件内容，不解压
+v：详细显示正在处理的信息，并打印到屏幕
+p：保留文件的权限和属性，备份文件时较有用
+P：保留文件的绝对路径；{比如在/root/t1/t2/目录下对t3打包，加上 -P选项打包，解压时则会是（root/t1/t2/t3）
+--exclude=file：排除不需要打包的文件
+</code></pre>
+<h2 id="常用组合">常用组合：</h2>
+<pre><code class="language-shell">pcvf：只打包不压缩
+pzcvf：打包并采用gzip压缩
+pjcvf：打包并采用bzip2压缩
+tvjf：查看bzip2的压缩文件，不解压（*.tar.bz2）
+tvzf：查看gzip的压缩文件，不解压（*.tar.gz）
+</code></pre>
+<hr>
+<h2 id="1-创建实验文件">1、创建实验文件</h2>
+<figure data-type="image" tabindex="1"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/tar1.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<hr>
+<h2 id="2-打包t3目录但不包含t3目录的上级目录结构">2、打包t3目录，但不包含t3目录的上级目录结构</h2>
+<p><code>只打包t3目录，不包含/root/t1/t2</code><br>
+<code>tar -pcvf t3.tar.gz -C /root/t1/t2/ t3</code><br>
+<img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/tar2.png?x-oss-process=style/images" alt="" loading="lazy"><br>
+<code>显然我们打包完t3，打包文件是存在了当前路径下</code></p>
+<hr>
+<h2 id="3-打包文件并存放在到指定的路径下">3、打包文件，并存放在到指定的路径下</h2>
+<p><code>将t3目录打包到 /tpm/ 路径下</code><br>
+<code>tar -pcvf /tmp/t3.tar.gz -C /root/t1/t2/ t3</code><br>
+<img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/tar3.png?x-oss-process=style/images" alt="" loading="lazy"></p>
+<hr>
+<h2 id="4-排除不需要打包的文件">4、排除不需要打包的文件</h2>
+<p>[root@zy ~]# tree /root/t1/<br>
+/root/t1/<br>
+└── t2<br>
+├── t3<br>
+│   └── file.txt<br>
+└── test.txt<br>
+<code>目录结构：/root/t1/t2/t3/ 将t2目录打包，并存放在/tmp下，但是排除掉t2目录下的t3</code><br>
+<img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/tar4.png?x-oss-process=style/images" alt="" loading="lazy"></p>
+<hr>
+<h3 id="f-选项放在最后面">f 选项放在最后面</h3>
+<p>例如:</p>
+<pre><code class="language-shell">tar -pvzcf
+tar -tvf
+tar -pvjcf
+</code></pre>
+<hr>
+<h3 id="报错">报错</h3>
+<blockquote>
+<p>tar: Removing leading `/' from member names</p>
+</blockquote>
+<pre><code class="language-shell">tar默认为相对路径，使用绝对路径的话就会报这个错，可以使用 -P 参数（注意大写）解决这个问题
+</code></pre>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://telnetwork.github.io/media/images/63ApH3uus.jpg');"></div>
+                 <a href="https://telnetwork.github.io/NkXMa9Up2/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2020-03-30">2020-03-30</time>
+                  <h4 class="title white no-margin">RHEL7 更换Yum源</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://telnetwork.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <div class="clear"></div>
+<script>
+jQuery(document).ready(function($){
+    $('.vemoji-btn').text('😀');
+    $("#comments").on('click', 'span.vat',function(){
+        $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+        $('textarea#veditor').focus();
+    })
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+            if ($(window.location.hash).length) {
+                $('html, body').animate({scrollTop: $(window.location.hash).offset().top-200}, 600);
+                clearInterval(checkExist);
+            }
+        }, 100);
+    }
+})
+</script>
+
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://telnetwork.github.io/ZaMP0KK0j/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2020-03-30">2020-03-30</time>
+                      <h4 class="title usmall">
+                        <a href="https://telnetwork.github.io/ZaMP0KK0j/">tar 打包 压缩</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://telnetwork.github.io/NkXMa9Up2/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2020-03-30">2020-03-30</time>
+                      <h4 class="title usmall">
+                        <a href="https://telnetwork.github.io/NkXMa9Up2/">RHEL7 更换Yum源</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://telnetwork.github.io/RYE3H2w_z/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('/media/images/gridea.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2020-03-30">2020-03-30</time>
+                      <h4 class="title usmall">
+                        <a href="https://telnetwork.github.io/RYE3H2w_z/">最小化Linux 安装setup工具</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://telnetwork.github.io/nkCE1-03f/" class="ctag ctag-0 ctag-nkCE1-03f" aria-label="">命令记录</a>
+                    
+                      <a href="https://telnetwork.github.io/63ApH3uus/" class="ctag ctag-1 ctag-63ApH3uus" aria-label="">Yum</a>
+                    
+                      <a href="https://telnetwork.github.io/qpAr93K7c/" class="ctag ctag-2 ctag-qpAr93K7c" aria-label="">Linux</a>
+                    
+                      <a href="https://telnetwork.github.io/hxK5NO0wo/" class="ctag ctag-3 ctag-hxK5NO0wo" aria-label="">正则</a>
+                    
+                      <a href="https://telnetwork.github.io/6ZnsQrOu0/" class="ctag ctag-4 ctag-6ZnsQrOu0" aria-label="">Network</a>
+                    
+                      <a href="https://telnetwork.github.io/Nl2vJN0d_/" class="ctag ctag-5 ctag-Nl2vJN0d_" aria-label="">Ansible</a>
+                    
+                      <a href="https://telnetwork.github.io/J0z8LxWfsU/" class="ctag ctag-6 ctag-J0z8LxWfsU" aria-label="">ansible-playbook</a>
+                    
+                      <a href="https://telnetwork.github.io/l3L8MzPRU/" class="ctag ctag-7 ctag-l3L8MzPRU" aria-label="">Shell-Script</a>
+                    
+                      <a href="https://telnetwork.github.io/qYDcJ3dZc/" class="ctag ctag-8 ctag-qYDcJ3dZc" aria-label="">Nginx</a>
+                    
+                      <a href="https://telnetwork.github.io/_FcjZ0qe_/" class="ctag ctag-9 ctag-_FcjZ0qe_" aria-label="">Tomcat</a>
+                    
+                      <a href="https://telnetwork.github.io/GCcOQFcNI/" class="ctag ctag-10 ctag-GCcOQFcNI" aria-label="">Ubuntu</a>
+                    
+                      <a href="https://telnetwork.github.io/b69gVEo6w/" class="ctag ctag-11 ctag-b69gVEo6w" aria-label="">Linux-Service</a>
+                    
+                      <a href="https://telnetwork.github.io/LAb5h4nZW/" class="ctag ctag-12 ctag-LAb5h4nZW" aria-label="">Systemd</a>
+                    
+                      <a href="https://telnetwork.github.io/OXGvdsKht/" class="ctag ctag-13 ctag-OXGvdsKht" aria-label="">JDK</a>
+                    
+                      <a href="https://telnetwork.github.io/pFMWpW7Sn/" class="ctag ctag-14 ctag-pFMWpW7Sn" aria-label="">sed</a>
+                    
+                      <a href="https://telnetwork.github.io/gtA_HuPUP/" class="ctag ctag-15 ctag-gtA_HuPUP" aria-label="">grep</a>
+                    
+                      <a href="https://telnetwork.github.io/ZEA1vWG1d/" class="ctag ctag-16 ctag-ZEA1vWG1d" aria-label="">Tools</a>
+                    
+                      <a href="https://telnetwork.github.io/9f4W__SbX/" class="ctag ctag-17 ctag-9f4W__SbX" aria-label="">Docker</a>
+                    
+                      <a href="https://telnetwork.github.io/3EmKV5KYj/" class="ctag ctag-18 ctag-3EmKV5KYj" aria-label="">vim</a>
+                    
+                      <a href="https://telnetwork.github.io/sTOvVvT21/" class="ctag ctag-19 ctag-sTOvVvT21" aria-label="">shortstory</a>
+                    
+                      <a href="https://telnetwork.github.io/HZ8uq8-r6/" class="ctag ctag-20 ctag-HZ8uq8-r6" aria-label="">PHP</a>
+                    
+                      <a href="https://telnetwork.github.io/NGZpmwZju/" class="ctag ctag-21 ctag-NGZpmwZju" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://telnetwork.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">天天记</a></h4>
+                    <p class="founder">温故而知新</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://telnetwork.github.io"><img src="\media\images\custom-footerLogo.png" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 60 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/valine/1.3.10/Valine.Pure.min.js"></script>
+<script>
+    new Valine({
+        el: '#comments',
+        appId: 'OsG545CAqPfCWfu53xUmIT6c-MdYXbMMI' ,
+        appKey: 'xCNsheoU68eBGlTCHIhU0dqm',
+        pageSize: 30,
+        placeholder: '既然来了，那就留个痕迹吧~',
+        visitor: true // 阅读量统计
+    })
+</script>
+    
+
+      
+    <script src="https://telnetwork.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>
