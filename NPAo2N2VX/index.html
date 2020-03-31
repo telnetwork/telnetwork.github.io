@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>三层网络结构（核心 汇聚 接入） | 天天记</title>
+<title>Python2 与 Python3 共存 | 天天记</title>
 <meta name="description" content="温故而知新" />
 <link rel="shortcut icon" href="https://telnetwork.github.io/favicon.ico">
 <link rel="stylesheet" href="https://telnetwork.github.io/styles/main.css">
@@ -15,12 +15,14 @@
 <script src="https://telnetwork.github.io/media/js/jquery.magnific-popup.min.js"></script>
 <script src="https://telnetwork.github.io/media/js/functions.js"></script>
     <meta name="referrer" content="never">
-    <meta name="description" content="三层网络结构：
+    <meta name="description" content="
+绝大多数的Linux系统安装后，Python解释器就已经默认存在了。可以直接输入python打开交互式python解释器
 
-三层网络结构是采用层次化架构的三层网络。
-三层网络架构采用层次化模型设计，即将复杂的网络设计分成几个层次，每个层次着重于某些特定的功能，这样就能够使一个复杂的大问题变成许多简单的小问题。
-三层网络架构设计的网络有三个层次：..." />
-    <meta name="keywords" content="Network" />
+&gt;&gt;&gt; Python 命令提示符
+退出交互式解析器：快捷键：Ctrl+d 或者 quit()
+
+..." />
+    <meta name="keywords" content="Python" />
     <script src="https://telnetwork.github.io/media/js/waterfall.min.js"></script>
     <script src="https://telnetwork.github.io/media/js/prism.min.js"></script>
   </head>
@@ -90,21 +92,21 @@
         <div class="center content">
           <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
             <div class="meta top"> 
-              <time class="meta-info" style="float:left;" datetime="2016-04-16"><i class="fa fa-calendar"></i><span class="lately">4 年前</span></time>
+              <time class="meta-info" style="float:left;" datetime="2020-04-01"><i class="fa fa-calendar"></i><span class="lately">6 分钟前</span></time>
               
-              <a href="https://telnetwork.github.io/rMIHGQgvP/#comments" class="comments meta-info" title="">
-                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/rMIHGQgvP/"> </span>
+              <a href="https://telnetwork.github.io/NPAo2N2VX/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/NPAo2N2VX/"> </span>
               </a>
-              <span id="/rMIHGQgvP/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              <span id="/NPAo2N2VX/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
               
             </div>
             <div class="info">
               <div class="tags ">
                 
-                      <a href="https://telnetwork.github.io/6ZnsQrOu0/" class="ctag ctag-0 ctag-6ZnsQrOu0" aria-label="">Network</a>
+                      <a href="https://telnetwork.github.io/S59HFMZ5c/" class="ctag ctag-0 ctag-S59HFMZ5c" aria-label="">Python</a>
                     
               </div>
-              <h1 class="title ularge white bold">三层网络结构（核心 汇聚 接入）</h1>
+              <h1 class="title ularge white bold">Python2 与 Python3 共存</h1>
             </div>
           </div>
         </div>  
@@ -114,32 +116,60 @@
             <article class="main-article post">
               <section class="post-content">
                 <div class="text">
-                  <h2 id="三层网络结构">三层网络结构：</h2>
-<blockquote>
-<p>三层网络结构是采用层次化架构的三层网络。<br>
-三层网络架构采用层次化模型设计，即将复杂的网络设计分成几个层次，每个层次着重于某些特定的功能，这样就能够使一个复杂的大问题变成许多简单的小问题。<br>
-三层网络架构设计的网络有三个层次：<br>
-核心层（网络的高速交换主干）<br>
-汇聚层（提供基于策略的连接）<br>
-接入层 （将各种主机，工作设备接入网络）</p>
+                  <blockquote>
+<p>绝大多数的Linux系统安装后，Python解释器就已经默认存在了。可以直接输入<code>python</code>打开交互式python解释器</p>
 </blockquote>
-<h3 id="1核心层">1.	核心层：</h3>
-<blockquote>
-<p>核心层是网络的高速交换主干，对整个网络的连通起到至关重要的作用。核心层应该具有如下几个特性：可靠性、高效性、冗余性、容错性、可管理性、适应性、低延时性等。在核心层中，应该采用高带宽的千兆以上交换机。因为核心层是网络的枢纽中心，重要性突出。核心层设备采用双机冗余热备份是非常必要的，也可以使用负载均衡功能，来改善网络性能。网络的控制功能最好尽量少在骨干层上实施。核心层一直被认为是所有流量的最终承受者和汇聚者，所以对核心层的设计以及网络设备的要求十分严格。核心层设备将占投资的主要部分。</p>
-</blockquote>
-<h3 id="2汇聚层">2.	汇聚层：</h3>
-<blockquote>
-<p>汇聚层是网络接入层和核心层的“中介”，就是在工作站接入核心层前先做汇聚，以减轻核心层设备的负荷。汇聚层必须能够处理来自接入层设备的所有通信量，并提供到核心层的上行链路，因此汇聚层交换机与接入层交换机比较，需要更高的性能，更少的接口和更高的交换速率。汇聚层具有实施策略、安全、工作组接入、虚拟局域网（VLAN）之间的路由、源地址或目的地址过滤等多种功能。在汇聚层中，应该采用支持三层交换技术和VLAN的交换机，以达到网络隔离和分段的目的。</p>
-</blockquote>
-<h3 id="3接入层">3.	接入层：</h3>
-<blockquote>
-<p>通常将网络中直接面向用户连接或访问网络的部分称为接入层，接入层目的是允许终端用户连接到网络，因此接入层交换机具有低成本和高端口密度特性。我们在接入层设计上主张使用性能价格比高的设备。接入层是最终用户(教师、学生) 与网络的接口，它应该提供即插即用的特性，同时应该非常易于使用和维护，同时要考虑端口密度的问题。</p>
-</blockquote>
-<blockquote>
-<p>接入层为用户提供了在本地网段访问应用系统的能力，主要解决相邻用户之间的互访需求，并且为这些访问提供足够的带宽，接入层还应当适当负责一些用户管理功能（如地址认证、用户认证、计费管理等），以及用户信息收集工作（如用户的IP地址、MAC地址、访问日志等）。</p>
-</blockquote>
-<hr>
-<p>对于网络规模小，联网距离较短的环境，可以采用“收缩核心”设计。忽略汇聚层，核心层设备可以直接连接接入层，这样一定程度上可以省去部分汇聚层费用，还可以减轻维护负担，更容易监控网络状况。我们单位多年来，一直采用“收缩核心”网络架构，运行良好。</p>
+<p><code>&gt;&gt;&gt; Python 命令提示符</code></p>
+<p>退出交互式解析器：<code>快捷键：Ctrl+d</code> 或者 <code>quit()</code></p>
+<figure data-type="image" tabindex="1"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/ospython.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<h3 id="python3-依赖组件">python3 依赖组件：</h3>
+<pre><code>yum -y install openssl-devel bzip2-devel expat-devel gdbm-devel gdbm-devel readline-devel sqlite-devel gcc gcc-c++
+</code></pre>
+<h3 id="下载-python-源码包">下载 <code>Python</code> 源码包</h3>
+<p>https://www.python.org/ftp/python/</p>
+<pre><code>wget https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz
+tar -xf Python-3.6.8.tgz
+cd Python-3.6.8
+./configure --prefix=/usr/local/
+make
+// 查看README文件，如果想要同时拥有两个Python版本，安装时可以选择：make altinstall
+make altinstall
+</code></pre>
+<h3 id="安装完成">安装完成</h3>
+<p><code>type -a python3.6</code></p>
+<figure data-type="image" tabindex="2"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401015019964.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<h3 id="安装完成后产生的相关文件">安装完成后产生的相关文件：</h3>
+<pre><code>/usr/local/bin/python3.6：python3.6 程序的执行文件
+/usr/local/lib/python3.6：python3.6 应用程序目录
+/usr/local/bin/pip3.6：pip3 的执行文件
+/usr/local/bin/pyenv-3.6：pyenv3 的执行文件
+</code></pre>
+<p><code>此时输入 python 进入的还是默认python2.7的版本，还需要执行以下操作</code><br>
+<code>修改前先查看python执行文件的各链接情况</code></p>
+<figure data-type="image" tabindex="3"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401020655159.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<pre><code>cd /usr/bin/
+rm -f python
+ln -s /usr/local/bin/python3.6 /usr/bin/python
+ln -s /usr/local/bin/python3.6 /usr/bin/python3
+</code></pre>
+<p><code>python：默认进入python3</code></p>
+<p><code>python2：进入python2.7</code></p>
+<figure data-type="image" tabindex="4"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401024826713.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<h3 id="修复-yum">修复 Yum</h3>
+<p><code>修改后 yum 不能用了，会报一个语法无效的错误</code><br>
+<img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401021238350.png?x-oss-process=style/images" alt="" loading="lazy"></p>
+<pre><code>/usr/bin/yum*
+/usr/libexec/urlgrabber-ext-down
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401023452382.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<p>方法1：<code>将这些文件中所有的 except 写法改成 Python3 的</code></p>
+<p>方法2：<code>修改第1行的解析器声明为：python2</code></p>
+<p>这里选择第2个</p>
+<pre><code>sed -i s#/usr/bin/python#/usr/bin/python2# /usr/bin/yum* /usr/libexec/urlgrabber-ext-down
+</code></pre>
+<figure data-type="image" tabindex="6"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401024111235.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<h3 id="验证">验证</h3>
+<figure data-type="image" tabindex="7"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401024317898.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
 
                 </div>
                 <div class="clear"></div>
@@ -149,26 +179,13 @@
 
             <section class="related section">
               
-              <article class="prev grid-50 tablet-grid-50 grid-parent">
-                <div class="thumb cover lazy loaded" style="background-image: url('https://telnetwork.github.io/media/images/_FcjZ0qe_.jpg');"></div>
-                 <a href="https://telnetwork.github.io/yhEQlAM4W/" class="full-link"></a>
-                 <div class="info">
-                  <time datetime="2016-09-03">2016-09-03</time>
-                  <h4 class="title white no-margin">Tomcat 加速启动</h4>
-                </div>
-                 <span class="epcl-button red">
-                  <img src="https://telnetwork.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
-                </span>
-                <div class="overlay"></div>
-              </article>
-              
               
               <article class="next grid-50 tablet-grid-50 grid-parent">
-                <div class="thumb cover lazy loaded" style="background-image: url('https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/20190501.jpg?x-oss-process=style/images');"></div>
-                 <a href="https://telnetwork.github.io/RQ_S1Sf8Q/" class="full-link"></a>
+                <div class="thumb cover lazy loaded" style="background-image: url('https://telnetwork.github.io/media/images/nkCE1-03f.jpg');"></div>
+                 <a href="https://telnetwork.github.io/yf2Vh3TZm/" class="full-link"></a>
                  <div class="info">
-                  <time datetime="2015-12-09">2015-12-09</time>
-                  <h4 class="title white no-margin">防火墙发展简述</h4>
+                  <time datetime="2020-03-31">2020-03-31</time>
+                  <h4 class="title white no-margin">htop</h4>
                 </div>
                  <span class="epcl-button red">
                   <img src="https://telnetwork.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
