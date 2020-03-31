@@ -77,7 +77,7 @@
       <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
         <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
           <div class="search-wrapper section">
-            <form id="gridea-search-form" data-update="1585680687479" action="/search/index.html" class="search-form" _lpchecked="1">
+            <form id="gridea-search-form" data-update="1585680950691" action="/search/index.html" class="search-form" _lpchecked="1">
               <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
               <button type="submit" class="submit" aria-label="Submit">
                 <i class="fa fa-search-line"></i>
@@ -92,7 +92,7 @@
         <div class="center content">
           <div class="featured-image cover" style="background-image: url('/media/images/gridea.jpg');">
             <div class="meta top"> 
-              <time class="meta-info" style="float:left;" datetime="2020-04-01"><i class="fa fa-calendar"></i><span class="lately">6 分钟前</span></time>
+              <time class="meta-info" style="float:left;" datetime="2020-04-01"><i class="fa fa-calendar"></i><span class="lately">10 分钟前</span></time>
               
               <a href="https://telnetwork.github.io/NPAo2N2VX/#comments" class="comments meta-info" title="">
                 <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/NPAo2N2VX/"> </span>
@@ -123,11 +123,11 @@
 <p>退出交互式解析器：<code>快捷键：Ctrl+d</code> 或者 <code>quit()</code></p>
 <figure data-type="image" tabindex="1"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/ospython.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
 <h3 id="python3-依赖组件">python3 依赖组件：</h3>
-<pre><code>yum -y install openssl-devel bzip2-devel expat-devel gdbm-devel gdbm-devel readline-devel sqlite-devel gcc gcc-c++
+<pre><code class="language-shell">yum -y install openssl-devel bzip2-devel expat-devel gdbm-devel gdbm-devel readline-devel sqlite-devel gcc gcc-c++
 </code></pre>
 <h3 id="下载-python-源码包">下载 <code>Python</code> 源码包</h3>
 <p>https://www.python.org/ftp/python/</p>
-<pre><code>wget https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz
+<pre><code class="language-shell">wget https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz
 tar -xf Python-3.6.8.tgz
 cd Python-3.6.8
 ./configure --prefix=/usr/local/
@@ -139,7 +139,7 @@ make altinstall
 <p><code>type -a python3.6</code></p>
 <figure data-type="image" tabindex="2"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401015019964.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
 <h3 id="安装完成后产生的相关文件">安装完成后产生的相关文件：</h3>
-<pre><code>/usr/local/bin/python3.6：python3.6 程序的执行文件
+<pre><code class="language-shell">/usr/local/bin/python3.6：python3.6 程序的执行文件
 /usr/local/lib/python3.6：python3.6 应用程序目录
 /usr/local/bin/pip3.6：pip3 的执行文件
 /usr/local/bin/pyenv-3.6：pyenv3 的执行文件
@@ -147,25 +147,26 @@ make altinstall
 <p><code>此时输入 python 进入的还是默认python2.7的版本，还需要执行以下操作</code><br>
 <code>修改前先查看python执行文件的各链接情况</code></p>
 <figure data-type="image" tabindex="3"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401020655159.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
-<pre><code>cd /usr/bin/
+<pre><code class="language-shell">cd /usr/bin/
 rm -f python
 ln -s /usr/local/bin/python3.6 /usr/bin/python
 ln -s /usr/local/bin/python3.6 /usr/bin/python3
+
+# python：默认进入python3
+# python2：进入python2.7
 </code></pre>
-<p><code>python：默认进入python3</code></p>
-<p><code>python2：进入python2.7</code></p>
 <figure data-type="image" tabindex="4"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401024826713.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
 <h3 id="修复-yum">修复 Yum</h3>
 <p><code>修改后 yum 不能用了，会报一个语法无效的错误</code><br>
 <img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401021238350.png?x-oss-process=style/images" alt="" loading="lazy"></p>
-<pre><code>/usr/bin/yum*
+<pre><code class="language-shell">/usr/bin/yum*
 /usr/libexec/urlgrabber-ext-down
 </code></pre>
 <figure data-type="image" tabindex="5"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401023452382.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
 <p>方法1：<code>将这些文件中所有的 except 写法改成 Python3 的</code></p>
 <p>方法2：<code>修改第1行的解析器声明为：python2</code></p>
 <p>这里选择第2个</p>
-<pre><code>sed -i s#/usr/bin/python#/usr/bin/python2# /usr/bin/yum* /usr/libexec/urlgrabber-ext-down
+<pre><code class="language-shell">sed -i s#/usr/bin/python#/usr/bin/python2# /usr/bin/yum* /usr/libexec/urlgrabber-ext-down
 </code></pre>
 <figure data-type="image" tabindex="6"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401024111235.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
 <h3 id="验证">验证</h3>
