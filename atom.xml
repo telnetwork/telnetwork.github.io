@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://telnetwork.github.io</id>
     <title>天天记</title>
-    <updated>2020-03-31T18:55:53.481Z</updated>
+    <updated>2020-04-11T16:09:14.455Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://telnetwork.github.io"/>
     <link rel="self" href="https://telnetwork.github.io/atom.xml"/>
@@ -11,11 +11,95 @@
     <icon>https://telnetwork.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 天天记</rights>
     <entry>
+        <title type="html"><![CDATA[history 配置]]></title>
+        <id>https://telnetwork.github.io/rUnDndtlD/</id>
+        <link href="https://telnetwork.github.io/rUnDndtlD/">
+        </link>
+        <updated>2020-04-11T15:43:25.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-shell">mkdir -p /var/log/command_history/
+touch /var/log/command_history/audit.log
+chmod 222 /var/log/command_history/audit.log
+chattr +a /var/log/command_history/audit.log
+lsattr /var/log/command_history/audit.log
+</code></pre>
+<p><code>vi /etc/bashrc</code></p>
+<pre><code class="language-shell"># HISTORY
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+shopt -s histappend
+export PROMPT_COMMAND=&quot;history -a ; $PROMPT_COMMAND&quot;
+# $(who -u am i | awk '{print $NF}'|sed -e 's/[()]//g')
+#export HISTTIMEFORMAT=&quot;%F %T  $(who am i |awk &quot;{print \$1\&quot; \&quot;\$2\&quot; \&quot;\$5}&quot;) &quot;
+export HISTTIMEFORMAT=&quot;[$(date &quot;+%F %T&quot;)] : [$SSH_CLIENT] : [$EUID $USER $SSH_TTY $(pwd)/]  ----  $msg&quot;
+export HISTORY_FILE=/var/log/command_history/audit.log
+export PROMPT_COMMAND='{ msg1=$(history 1 | { read x y; echo $y; });echo $msg1; } &gt;&gt; &quot;$HISTORY_FILE&quot;'
+#export PROMPT_COMMAND='{ msg=$(history 1 | { read x y; echo $y; });echo [$(date &quot;+%F %T&quot;)] : [$SSH_CLIENT] : [$EUID $USER $SSH_TTY $(pwd)/]  ---- $msg; } &gt;&gt; &quot;$HISTORY_FILE&quot;'
+</code></pre>
+<p><code>exec $SHELL</code></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Python2 与 Python3 共存]]></title>
         <id>https://telnetwork.github.io/NPAo2N2VX/</id>
         <link href="https://telnetwork.github.io/NPAo2N2VX/">
         </link>
         <updated>2020-03-31T18:45:35.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>绝大多数的Linux系统安装后，Python解释器就已经默认存在了。可以直接输入<code>python</code>打开交互式python解释器</p>
+</blockquote>
+<p><code>&gt;&gt;&gt; Python 命令提示符</code></p>
+<p>退出交互式解析器：<code>快捷键：Ctrl+d</code> 或者 <code>quit()</code></p>
+<figure data-type="image" tabindex="1"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/ospython.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<h3 id="python3-依赖组件">python3 依赖组件：</h3>
+<pre><code class="language-shell">yum -y install openssl-devel bzip2-devel expat-devel gdbm-devel gdbm-devel readline-devel sqlite-devel gcc gcc-c++
+</code></pre>
+<h3 id="下载-python-源码包">下载 <code>Python</code> 源码包</h3>
+<p>https://www.python.org/ftp/python/</p>
+<pre><code class="language-shell">wget https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz
+tar -xf Python-3.6.8.tgz
+cd Python-3.6.8
+./configure --prefix=/usr/local/
+make
+// 查看README文件，如果想要同时拥有两个Python版本，安装时可以选择：make altinstall
+make altinstall
+</code></pre>
+<h3 id="安装完成">安装完成</h3>
+<p><code>type -a python3.6</code></p>
+<figure data-type="image" tabindex="2"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401015019964.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<h3 id="安装完成后产生的相关文件">安装完成后产生的相关文件：</h3>
+<pre><code class="language-shell">/usr/local/bin/python3.6：python3.6 程序的执行文件
+/usr/local/lib/python3.6：python3.6 应用程序目录
+/usr/local/bin/pip3.6：pip3 的执行文件
+/usr/local/bin/pyenv-3.6：pyenv3 的执行文件
+</code></pre>
+<p><code>此时输入 python 进入的还是默认python2.7的版本，还需要执行以下操作</code><br>
+<code>修改前先查看python执行文件的各链接情况</code></p>
+<figure data-type="image" tabindex="3"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401020655159.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<pre><code class="language-shell">cd /usr/bin/
+rm -f python
+ln -s /usr/local/bin/python3.6 /usr/bin/python
+ln -s /usr/local/bin/python3.6 /usr/bin/python3
+
+# python：默认进入python3
+# python2：进入python2.7
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401024826713.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<h3 id="修复-yum">修复 Yum</h3>
+<p><code>修改后 yum 不能用了，会报一个语法无效的错误</code><br>
+<img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401021238350.png?x-oss-process=style/images" alt="" loading="lazy"></p>
+<pre><code class="language-shell">/usr/bin/yum*
+/usr/libexec/urlgrabber-ext-down
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401023452382.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<p>方法1：<code>将这些文件中所有的 except 写法改成 Python3 的</code></p>
+<p>方法2：<code>修改第1行的解析器声明为：python2</code></p>
+<p>这里选择第2个</p>
+<pre><code class="language-shell">sed -i s#/usr/bin/python#/usr/bin/python2# /usr/bin/yum* /usr/libexec/urlgrabber-ext-down
+</code></pre>
+<figure data-type="image" tabindex="6"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401024111235.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<h3 id="验证">验证</h3>
+<figure data-type="image" tabindex="7"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200401024317898.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[htop]]></title>
@@ -23,6 +107,21 @@
         <link href="https://telnetwork.github.io/yf2Vh3TZm/">
         </link>
         <updated>2020-03-30T16:17:15.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200331001706560.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<pre><code class="language-shell">PID：进行的标识号
+USER：运行此进程的用户
+PRI：进程的优先级
+NI：进程的优先级别值，默认的为0，可以进行调整
+VIRT：进程占用的虚拟内存值
+RES：进程占用的物理内存值
+SHR：进程占用的共享内存值
+S：进程的运行状况，R表示正在运行、S表示休眠，等待唤醒、Z表示僵死状态
+%CPU：该进程占用的CPU使用率
+%MEM：该进程占用的物理内存和总内存的百分比
+TIME+：该进程启动后占用的总的CPU时间
+COMMAND：进程启动的启动命令名称
+</code></pre>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[diff 比较目录文件的不同]]></title>
@@ -30,6 +129,11 @@
         <link href="https://telnetwork.github.io/jvCUYlcV6/">
         </link>
         <updated>2020-03-30T16:09:09.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="a-b-目录结构">A B 目录结构</h3>
+<figure data-type="image" tabindex="1"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200331000947314.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<p><code>diff A B</code></p>
+<figure data-type="image" tabindex="2"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200331001232991.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[dd 生成指定大小的文件]]></title>
@@ -37,6 +141,15 @@
         <link href="https://telnetwork.github.io/1A3A3DTxW/">
         </link>
         <updated>2020-03-30T16:04:07.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-shell">dd if=/dev/zero of=file.txt bs=10M count=10
+
+dd if=/dev/zero of=/tmp/file.txt bs=10M count=10
+
+of=生成的文件名
+bs=大小
+count=数量
+</code></pre>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Scp 传输文件]]></title>
@@ -44,6 +157,39 @@
         <link href="https://telnetwork.github.io/F7tAqqeV7/">
         </link>
         <updated>2020-03-30T15:34:07.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="拷贝远程服务器的文件到本地">拷贝远程服务器的文件，到本地：</h3>
+<pre><code class="language-shell">scp root@10.10.10.11:/root/test.txt /root/
+</code></pre>
+<h3 id="拷贝本地文件到远程服务器">拷贝本地文件，到远程服务器：</h3>
+<pre><code class="language-shell">scp -r /root/test.txt root@10.10.10.11:/root/
+</code></pre>
+<h3 id="scp默认连接的远端主机22端口如果ssh不是默认的22端口以30102为例使用-p大写指定">scp默认连接的远端主机22端口，如果ssh不是默认的22端口（以30102为例）使用-P（大写）指定：</h3>
+<pre><code class="language-shell">scp -P 30102 /tmp/test.file user@host:/tmp/
+</code></pre>
+<h3 id="从本地复制多个文件到远程主机多个文件使用空格分隔开">从本地复制多个文件，到远程主机（多个文件使用空格分隔开）</h3>
+<pre><code class="language-shell">scp 1.js a.txt file.jpg root@10.10.10.11:/tmp/webs/
+</code></pre>
+<h3 id="从远程主机复制多个文件到当前目录">从远程主机复制多个文件，到当前目录</h3>
+<pre><code class="language-shell">scp root@10.10.10.11:/tmp/webs/\{index.css,json.js\} /data/web/
+</code></pre>
+<h3 id="从本地文件复制整个文件夹到远程主机上-r">从本地文件复制整个文件夹，到远程主机上( -r )</h3>
+<pre><code class="language-shell">scp -v -r test-dir root@10.10.10.11:/tmp/
+</code></pre>
+<h3 id="从远程主机复制整个文件夹到当前test目录下">从远程主机复制整个文件夹，到当前test目录下</h3>
+<pre><code class="language-shell">scp -r root@10.10.10.11:/data/webs ./test/
+</code></pre>
+<h3 id="在两个远程主机之间复制文件">在两个远程主机之间复制文件</h3>
+<p><code>scp 把文件 从远程主机A，复制到远程主机B</code></p>
+<pre><code class="language-shell">scp -vr root@10.10.10.11:/tmp/1.txt root@10.10.10.12:/tmp/
+</code></pre>
+<h3 id="传输过程中压缩文件加快传输">传输过程中压缩文件，加快传输</h3>
+<blockquote>
+<p>文件传输的过程中，使用压缩文件来加快文件传输， <code>-C</code> 启用压缩功能，该文件在传输过程中被压缩，<br>
+在目的主机上被解压缩</p>
+</blockquote>
+<pre><code class="language-shell">scp -vrC test-dir root@10.10.10.11:/tmp/
+</code></pre>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[常见文件传输模式]]></title>
@@ -51,6 +197,15 @@
         <link href="https://telnetwork.github.io/NbIA2fQOd/">
         </link>
         <updated>2020-03-30T15:22:55.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-ruby">1）ASCII：最快的传输模式，但只能传文本
+
+2）Xmodem：非常古老的传输协议速度较慢，但由于使用了CRC错误侦测方法，传输的准确率可高达99.6%。
+
+3）Ymodem：Xmodem的改良版，速度相比之较快。
+
+4）Zmodem：Zmodem采用了串流式（streaming）传输方式，传输速度较快，而且还具有自动改变区段大小和断点续传、快速错误侦测等功能。这是目前最流行的文件传输协议。
+</code></pre>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[单独安装 redis-cli  工具包]]></title>
@@ -58,6 +213,26 @@
         <link href="https://telnetwork.github.io/8QIU8-1yC/">
         </link>
         <updated>2020-03-30T13:21:24.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="gcc">GCC</h3>
+<pre><code class="language-shell">yum -y install gcc gcc-c++
+apt-get -y install gcc g++
+</code></pre>
+<pre><code class="language-shell">wget http://download.redis.io/redis-stable.tar.gz
+tar -zxvf redis-stable.tar.gz
+cd redis-stable
+make
+cp -a src/redis-cli /usr/bin/
+</code></pre>
+<blockquote>
+<p>redis-cli -v<br>
+redis-cli 5.0.8</p>
+</blockquote>
+<hr>
+<h3 id="make-时报错">make 时报错</h3>
+<figure data-type="image" tabindex="1"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200330212716678.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<pre><code class="language-shell">make MALLOC=libc
+</code></pre>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Ubuntu 升级pip后，使用报错]]></title>
@@ -65,6 +240,25 @@
         <link href="https://telnetwork.github.io/BtbBwCbIu/">
         </link>
         <updated>2020-03-30T10:38:37.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/image-20200330184742003.png?x-oss-process=style/images" alt="" loading="lazy"><br>
+<code>pip 更新后 库里面的函数有变动</code></p>
+<p><code>vi /usr/bin/pip</code></p>
+<pre><code class="language-python">from pip import main
+改成
+from pip._internal import main
+</code></pre>
+<p>或者</p>
+<pre><code class="language-python">from pip import main
+if __name__ == '__main__':
+    sys.exit(main())
+
+改成
+
+from pip import __main__
+if __name__ == '__main__':
+    sys.exit(__main__._main())
+</code></pre>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[tar 打包 压缩]]></title>
@@ -72,12 +266,64 @@
         <link href="https://telnetwork.github.io/ZaMP0KK0j/">
         </link>
         <updated>2020-03-30T09:32:04.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[RHEL7 更换Yum源]]></title>
-        <id>https://telnetwork.github.io/NkXMa9Up2/</id>
-        <link href="https://telnetwork.github.io/NkXMa9Up2/">
-        </link>
-        <updated>2020-03-30T09:14:30.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="选项">选项：</h2>
+<pre><code class="language-shell">f：后面跟操作文件，最好放在最后面
+c：创建一个新的打包文件
+C ：后面跟路径，解压到指定路径
+z：使用gzip进行压缩，一般使用后缀（*.tar.gz）
+j：使用bzip2进行压缩，一般使用后缀（*.tar.bz2）
+x：对打包文件进行解压
+t：查看打包文件内容，不解压
+v：详细显示正在处理的信息，并打印到屏幕
+p：保留文件的权限和属性，备份文件时较有用
+P：保留文件的绝对路径；{比如在/root/t1/t2/目录下对t3打包，加上 -P选项打包，解压时则会是（root/t1/t2/t3）
+--exclude=file：排除不需要打包的文件
+</code></pre>
+<h2 id="常用组合">常用组合：</h2>
+<pre><code class="language-shell">pcvf：只打包不压缩
+pzcvf：打包并采用gzip压缩
+pjcvf：打包并采用bzip2压缩
+tvjf：查看bzip2的压缩文件，不解压（*.tar.bz2）
+tvzf：查看gzip的压缩文件，不解压（*.tar.gz）
+</code></pre>
+<hr>
+<h2 id="1-创建实验文件">1、创建实验文件</h2>
+<figure data-type="image" tabindex="1"><img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/tar1.png?x-oss-process=style/images" alt="" loading="lazy"></figure>
+<hr>
+<h2 id="2-打包t3目录但不包含t3目录的上级目录结构">2、打包t3目录，但不包含t3目录的上级目录结构</h2>
+<p><code>只打包t3目录，不包含/root/t1/t2</code><br>
+<code>tar -pcvf t3.tar.gz -C /root/t1/t2/ t3</code><br>
+<img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/tar2.png?x-oss-process=style/images" alt="" loading="lazy"><br>
+<code>显然我们打包完t3，打包文件是存在了当前路径下</code></p>
+<hr>
+<h2 id="3-打包文件并存放在到指定的路径下">3、打包文件，并存放在到指定的路径下</h2>
+<p><code>将t3目录打包到 /tpm/ 路径下</code><br>
+<code>tar -pcvf /tmp/t3.tar.gz -C /root/t1/t2/ t3</code><br>
+<img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/tar3.png?x-oss-process=style/images" alt="" loading="lazy"></p>
+<hr>
+<h2 id="4-排除不需要打包的文件">4、排除不需要打包的文件</h2>
+<p>[root@zy ~]# tree /root/t1/<br>
+/root/t1/<br>
+└── t2<br>
+├── t3<br>
+│   └── file.txt<br>
+└── test.txt<br>
+<code>目录结构：/root/t1/t2/t3/ 将t2目录打包，并存放在/tmp下，但是排除掉t2目录下的t3</code><br>
+<img src="https://telnetwork.oss-cn-hongkong.aliyuncs.com/img/tar4.png?x-oss-process=style/images" alt="" loading="lazy"></p>
+<hr>
+<h3 id="f-选项放在最后面">f 选项放在最后面</h3>
+<p>例如:</p>
+<pre><code class="language-shell">tar -pvzcf
+tar -tvf
+tar -pvjcf
+</code></pre>
+<hr>
+<h3 id="报错">报错</h3>
+<blockquote>
+<p>tar: Removing leading `/' from member names</p>
+</blockquote>
+<pre><code class="language-shell">tar默认为相对路径，使用绝对路径的话就会报这个错，可以使用 -P 参数（注意大写）解决这个问题
+</code></pre>
+]]></content>
     </entry>
 </feed>
