@@ -2084,7 +2084,7 @@ body {
       }
     @font-face {
       font-family: 'JetBrainsMono-Regular';
-      src: url('https://cdn.jsdelivr.net/gh/sshtoplay@gmail.com/telnetwork.github.io@master/media/fonts/JetBrainsMono-Regular.ttf');
+      src: url('https://cdn.jsdelivr.net/gh/telnetwork/telnetwork.github.io@master/media/fonts/JetBrainsMono-Regular.ttf');
     }
     * {
         font-family: 'JetBrainsMono-Regular';
