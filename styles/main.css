@@ -2074,12 +2074,12 @@ body {
     .nav-toggle .line {
       background-color: #adb5bd !important;
     }.header {
-        width: 70%;
+        width: 80%;
         margin: 0 auto;
       }
 
       .main-continer {
-        width: 70%;
+        width: 80%;
         margin: 0 auto;
       }
     @font-face {
