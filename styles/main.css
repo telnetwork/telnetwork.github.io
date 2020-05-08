@@ -2074,12 +2074,12 @@ body {
     .nav-toggle .line {
       background-color: #adb5bd !important;
     }.header {
-        width: 80%;
+        width: 70%;
         margin: 0 auto;
       }
 
       .main-continer {
-        width: 80%;
+        width: 70%;
         margin: 0 auto;
       }
     @font-face {
@@ -2090,7 +2090,7 @@ body {
         font-family: 'JetBrainsMono-Regular';
     }
     .post-body {
-      font-size: 20px !important
+      font-size: 16px !important
     }
     body {
       color: #212529;
@@ -2152,6 +2152,15 @@ body {
     .nav-item:hover {
       background: #dee2e6fe;
       color: rgba(0, 0, 0, 0.98);
+    }.site-author-image {
+      border-radius: 50%;
+    }
+    .site-author-image:hover {
+      transform: rotate(666turn);
+      transition-delay: 1s;
+      transition-property: all;
+      transition-duration: 59s;
+      transition-timing-function: cubic-bezier(.34,0,.84,1);
     }.markdownIt-TOC a {
       color: #495057;
       border-bottom-color: #495057;
