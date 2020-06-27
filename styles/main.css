@@ -2092,7 +2092,7 @@ pre > span.copy-code:hover {
         font-family: 'JetBrainsMono-Regular';
     }
     .post-body {
-      font-size: 16px !important
+      font-size: 18px !important
     }
     body {
       color: #212529;
@@ -2104,7 +2104,7 @@ pre > span.copy-code:hover {
       border-bottom-color: #212529;
     }
     .archive-timeline-box::after, .tag-timeline-wrapper::after {
-      background: #21252966;
+      background: #212529cc;
     }h1, h2, h3, h4, h5, h6 {
       color: #212529;
     }
@@ -2148,11 +2148,11 @@ pre > span.copy-code:hover {
       }.nav-item a:hover {
         color: #222;
       }.nav-item-active {
-      background: #dee2e666;
+      background: #dee2e6cc;
     }
 
     .nav-item:hover {
-      background: #dee2e666;
+      background: #dee2e6cc;
       color: rgba(0, 0, 0, 0.98);
     }.site-author-image {
       border-radius: 50%;
@@ -2188,7 +2188,7 @@ pre > span.copy-code:hover {
       color: #fc6423;
       border-bottom-color: #fc6423;
     }.bg-color {
-      background-color: #e9ecef66;
+      background-color: #e9ecefcc;
     }
     .gemini .blog-header, .gemini .sidebar-wrapper, .gemini .article-wrapper, .gemini .post, .gemini .page, .gemini .section, .gemini .section-box, .gemini .sidebar-box, .gemini .friends-section {
       border-radius: 15px;
@@ -2203,13 +2203,13 @@ pre > span.copy-code:hover {
         background: #000 !important;
       }
     .brand {
-      background: #00000066;
+      background: #000000cc;
     }
     .main-title, .brand {
       color: #f08c00 !important;
     }
     .mist .site-title i {
-      background: #f08c0066;
+      background: #f08c00cc;
     }.box-shadow-wrapper {
       padding: 10px;
     }.box-shadow-wrapper {
