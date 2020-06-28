@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://telnetwork.github.io</id>
-    <title>记不住</title>
-    <updated>2020-06-27T12:07:23.155Z</updated>
+    <title>记录</title>
+    <updated>2020-06-28T09:22:52.945Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://telnetwork.github.io"/>
     <link rel="self" href="https://telnetwork.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
     <logo>https://telnetwork.github.io/images/avatar.png</logo>
     <icon>https://telnetwork.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 记不住</rights>
+    <rights>All rights reserved 2020, 记录</rights>
     <entry>
         <title type="html"><![CDATA[history 配置]]></title>
         <id>https://telnetwork.github.io/rUnDndtlD/</id>
