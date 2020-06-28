@@ -2164,8 +2164,8 @@ pre > span.copy-code:hover {
       transition-duration: 59s;
       transition-timing-function: cubic-bezier(.34,0,.84,1);
     }.markdownIt-TOC a {
-      color: #343a40;
-      border-bottom-color: #343a40;
+      color: #212529;
+      border-bottom-color: #212529;
     }.markdownIt-TOC a:hover {
       color: #fc6423;
       border-bottom-color: #fc6423;
