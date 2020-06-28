@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://telnetwork.github.io</id>
     <title>记录</title>
-    <updated>2020-06-28T10:08:16.779Z</updated>
+    <updated>2020-06-28T14:47:54.516Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://telnetwork.github.io"/>
     <link rel="self" href="https://telnetwork.github.io/atom.xml"/>
@@ -10,6 +10,55 @@
     <logo>https://telnetwork.github.io/images/avatar.png</logo>
     <icon>https://telnetwork.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 记录</rights>
+    <entry>
+        <title type="html"><![CDATA[修改Linux grub启动画面]]></title>
+        <id>https://telnetwork.github.io/QegAzzvf4/</id>
+        <link href="https://telnetwork.github.io/QegAzzvf4/">
+        </link>
+        <updated>2020-06-28T14:05:24.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[logrotate 日志切割]]></title>
+        <id>https://telnetwork.github.io/CO25G82p7/</id>
+        <link href="https://telnetwork.github.io/CO25G82p7/">
+        </link>
+        <updated>2020-06-28T12:52:36.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[tcpdump-简单记录1]]></title>
+        <id>https://telnetwork.github.io/_fdEFJnc9/</id>
+        <link href="https://telnetwork.github.io/_fdEFJnc9/">
+        </link>
+        <updated>2020-06-28T12:19:20.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CentOS 7 设置时区]]></title>
+        <id>https://telnetwork.github.io/s8-BuC8lU/</id>
+        <link href="https://telnetwork.github.io/s8-BuC8lU/">
+        </link>
+        <updated>2020-06-28T12:13:21.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Chronyc 时间同步服务器]]></title>
+        <id>https://telnetwork.github.io/1rtN2zlKC/</id>
+        <link href="https://telnetwork.github.io/1rtN2zlKC/">
+        </link>
+        <updated>2020-06-28T11:51:41.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[位置参数]]></title>
+        <id>https://telnetwork.github.io/mKVzUDpAz/</id>
+        <link href="https://telnetwork.github.io/mKVzUDpAz/">
+        </link>
+        <updated>2020-06-28T11:13:10.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[循环判断解压]]></title>
+        <id>https://telnetwork.github.io/twlyub_oj/</id>
+        <link href="https://telnetwork.github.io/twlyub_oj/">
+        </link>
+        <updated>2020-06-28T11:07:13.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[history 配置]]></title>
         <id>https://telnetwork.github.io/rUnDndtlD/</id>
@@ -30,54 +79,5 @@
         <link href="https://telnetwork.github.io/yf2Vh3TZm/">
         </link>
         <updated>2020-03-30T16:17:15.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[diff 比较目录文件的不同]]></title>
-        <id>https://telnetwork.github.io/jvCUYlcV6/</id>
-        <link href="https://telnetwork.github.io/jvCUYlcV6/">
-        </link>
-        <updated>2020-03-30T16:09:09.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[dd 生成指定大小的文件]]></title>
-        <id>https://telnetwork.github.io/1A3A3DTxW/</id>
-        <link href="https://telnetwork.github.io/1A3A3DTxW/">
-        </link>
-        <updated>2020-03-30T16:04:07.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Scp 传输文件]]></title>
-        <id>https://telnetwork.github.io/F7tAqqeV7/</id>
-        <link href="https://telnetwork.github.io/F7tAqqeV7/">
-        </link>
-        <updated>2020-03-30T15:34:07.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[常见文件传输模式]]></title>
-        <id>https://telnetwork.github.io/NbIA2fQOd/</id>
-        <link href="https://telnetwork.github.io/NbIA2fQOd/">
-        </link>
-        <updated>2020-03-30T15:22:55.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[单独安装 redis-cli  工具包]]></title>
-        <id>https://telnetwork.github.io/8QIU8-1yC/</id>
-        <link href="https://telnetwork.github.io/8QIU8-1yC/">
-        </link>
-        <updated>2020-03-30T13:21:24.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Ubuntu 升级pip后，使用报错]]></title>
-        <id>https://telnetwork.github.io/BtbBwCbIu/</id>
-        <link href="https://telnetwork.github.io/BtbBwCbIu/">
-        </link>
-        <updated>2020-03-30T10:38:37.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[tar 打包 压缩]]></title>
-        <id>https://telnetwork.github.io/ZaMP0KK0j/</id>
-        <link href="https://telnetwork.github.io/ZaMP0KK0j/">
-        </link>
-        <updated>2020-03-30T09:32:04.000Z</updated>
     </entry>
 </feed>
